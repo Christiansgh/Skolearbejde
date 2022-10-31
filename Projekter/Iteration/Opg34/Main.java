@@ -2,7 +2,7 @@ package Opg34;
 public class Main {
     public static void main(String[] args) {
         int T1[] = { 44, 71, 93, 24, 35, 21, 64 };
-        iterate(T1, 3);
+        iterate(T1, 20);
 
         
         // (44,71)(71,93)(93,24)(24,35)(35,21)(21,64)
@@ -14,15 +14,17 @@ public class Main {
                 int jCurr = T1[j];
                 double compared = jPrev / jCurr;
                 if(compared < 0) {
-                    jPrev++;
-                    jCurr--;
+                    T1[j-1]++;
+                    T1[j]--;
                 }
                 else if(compared > 1) {
-                    jPrev--;
-                    jCurr++;
+                    T1[j-1]--;
+                    T1[j]++;
                 }
                 System.out.print("("+jPrev+","+jCurr+")");
             }
+            System.out.println("");
         }
     }
 }
+//Den flytter tallene tættere på hinanden. En slags equalize effekt.
