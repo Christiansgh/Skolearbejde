@@ -5,8 +5,8 @@ public class Main {
         Lejlighed bolig1 = new Lejlighed(70, 3000);
         Villa bolig2 = new Villa(110, 800, 650000, true);
         Villa bolig3 =  new Villa(140, 400, 850000, false);
-        Lejlighed bolig4 = new Lejlighed(bolig1, bolig1);
-        Villa bolig5 = new Villa(bolig3, bolig3);
+        Lejlighed bolig4 = new Lejlighed(bolig1);
+        Villa bolig5 = new Villa(bolig3);
         System.out.println(bolig1);
         System.out.println(bolig2);
         System.out.println(bolig3);

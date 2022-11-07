@@ -10,9 +10,9 @@ public class Villa extends Bolig {
         set(outside_m2, buyingPrice, outOfTown);
     }
 
-    public Villa(Bolig otherB, Villa otherV) {
-        super(otherB);
-        set(otherV.outside_m2, otherV.buyingPrice, otherV.outOfTown);
+    public Villa(Villa other) {
+        super(other);
+        set(other.outside_m2, other.buyingPrice, other.outOfTown);
     }
 
     public void set(double outside_m2, double buyingPrice, boolean outOfTown) {
@@ -22,16 +22,17 @@ public class Villa extends Bolig {
     }
 
     public double yearlyRent() {
-        if(outOfTown == true) {
+        if (outOfTown) 
             return buyingPrice * 0.12;
-        }
-        return buyingPrice * 0.1;
+        else 
+            return buyingPrice * 0.10;
     }
 
     @Override
     public String toString() {
-        return "Villaen er " + getInside() + 
-        " m2. Den omkringliggende grund er " + outside_m2 + " m2. Huset koster " + buyingPrice + 
+        return "Villaen er " + super.toString() + 
+        ". Den omkringliggende grund er " + outside_m2 + 
+        " m2. Huset koster " + buyingPrice + 
         ". Den årlige husleje er " + yearlyRent() + ". ";
     }
 }

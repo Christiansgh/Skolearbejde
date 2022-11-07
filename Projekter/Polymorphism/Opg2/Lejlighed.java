@@ -8,11 +8,10 @@ public class Lejlighed extends Bolig {
         this.monthlyRent = monthlyRent;
     }
 
-    public Lejlighed(Bolig otherB, Lejlighed otherL) {
-        super(otherB);
-        monthlyRent = otherL.monthlyRent;
+    public Lejlighed(Lejlighed other) {
+        super(other);
+        monthlyRent = other.monthlyRent;
     }
-
 
     public double yearlyRent() {
         return monthlyRent * 12;
@@ -20,7 +19,7 @@ public class Lejlighed extends Bolig {
 
     @Override
     public String toString() {
-        return "Lejligheden er " + getInside() + 
-        " m2. Den årlige husleje er " + yearlyRent() + ".";
+        return "Lejligheden er " + super.toString() + 
+        ". Den årlige husleje er " + yearlyRent() + ".";
     }
 }
