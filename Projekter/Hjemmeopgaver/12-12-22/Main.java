@@ -6,22 +6,23 @@ public class Main {
     }
 
     public static void checkArray(int [] array, int [] target) {
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length - target.length; i++) {
             if (array[i] == target[0]) {
-                //int skipIndexes = 0;
+                int skipIndexes = 0;
                 boolean found = false;
                 for (int j = 1; j < target.length; j++) {
-                    //skipIndexes++;
+                    skipIndexes++;
                     if (array[i+j] != target[j]) {
-                        //i += skipIndexes;
+                        skipIndexes--;
+                        i += skipIndexes;
                         break;
                     }
                     found = true;
                 }
-                //i += skipIndexes;
                 if (found) {
                     System.out.println("target found @ [" + i + "]");
                 }
+                i += skipIndexes;
             }   
         }
     }
