@@ -6,8 +6,11 @@ public class Main {
         System.out.println("Input number:");
         int x = Integer.valueOf(scanner.nextLine());
         int y = x / 10;
-        //pre 10+
+        //pre 0+
         switch(y) {
+        case 0:
+            System.out.println(format(x, y));
+            break;
         case 1:
             System.out.println(format(x, y));
             break;
