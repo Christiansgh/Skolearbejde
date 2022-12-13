@@ -1,0 +1,70 @@
+I skal import database skoledb 
+der er 3 tabeller Student, Teacher, Course  
+insert  fiktiv data (mindst 5 på  2 og 3 semester) 
+lav SQL-sætninger der besvarer følgende spørgsmål: 
+gemme alle SQL-sætninger til ny filen  
+
+1. Hvilke studerende går på 1 semester? 
+SELECT lastname, firstname  
+FROM student 
+WHERE student.semester_no = 1; 
+
+
+2. Hvilke studerende har <navn på fag>? 
+SELECT student.semester_no, course.navn, course.courseID, student.firstname, student.lastname, student.id
+FROM student
+LEFT JOIN course 
+ON student.semester_no=course.semester_no
+ORDER BY course.navn;
+
+
+3. Hvor mange studerende har <navn på fag>? 
+SELECT courseID, navn, COUNT(student.firstname)
+FROM course 
+INNER JOIN student
+ON course.semester_no = student.semester_no
+GROUP BY courseID ASC;
+ 
+
+4. Hvem underviser i <navn på fag>? 
+SELECT course.teacher_id, course.navn, teacher.navn, teacher.teacherID
+FROM course
+INNER JOIN teacher
+ON course.teacher_id = teacherID
+ORDER BY teacher.navn;
+
+
+5. Hvem underviser 1 semester? 
+SELECT course.navn, course.teacher_id, teacher.navn
+FROM course
+INNER JOIN teacher
+ON course.teacher_id = teacherID AND course.semester_no = 1
+ORDER BY couse.teacher_id;
+
+
+6. Hvem underviser <navn på studerende>? 
+SELECT student.firstname, student.lastname, course.navn, teacher.navn 
+FROM student 
+INNER JOIN course 
+ON student.semester_no = course.semester_no 
+INNER JOIN teacher 
+ON course.teacher_id = teacher.teacherID;
+
+
+7. Hvor mange fag har <navn på studerende>? 
+
+ 
+
+ 
+
+ 
+
+8. Slet et fag. Hvilken konsekvens får det for databasen? 
+
+ 
+
+9.  UPDATE student _no=3, firstname='Martin' 
+
+ 
+
+10  JOIN lærer og fag tabeller og vis lær's navn=xxx 
