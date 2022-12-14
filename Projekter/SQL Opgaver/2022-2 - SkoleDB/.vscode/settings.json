@@ -1,0 +1,16 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "c:\\Users\\Christian\\Desktop\\Libaries\\mssql-jdbc-11.2.1.jre18.jar",
+            "c:\\Users\\Christian\\Desktop\\Libaries\\mssql-jdbc-11.2.1.jre8.jar"
+        ],
+        "exclude": [
+            "c:\\Users\\fkj\\Applications\\java\\mssql-jdbc-8.4.1.jre14.jar",
+            "c:\\Users\\fkj\\Applications\\java\\mssql-jdbc-8.4.1.jre14.jar",
+            "c:\\Users\\fkj\\Applications\\java\\mssql-jdbc-8.4.1.jre14.jar",
+            "c:\\Users\\fkj\\Applications\\java\\mssql-jdbc-8.4.1.jre14.jar",
+            "c:\\Users\\fkj\\Applications\\java\\mssql-jdbc-8.4.1.jre14.jar"
+        ]
+    }
+}
