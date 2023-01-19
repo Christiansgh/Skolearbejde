@@ -1,0 +1,15 @@
+.rootBackground {
+    -fx-background-color: #333333;
+    -fx-border-color: #F7F7F7;
+    -fx-border-width: 3px;
+}
+
+.rootTaskBar {
+    -fx-background-color: #37474F;
+    -fx-border-color: #F7F7F7;
+    -fx-border-width: 3px;
+}
+
+
+
+   

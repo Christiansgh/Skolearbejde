@@ -1,0 +1,17 @@
+.text-field {
+    -fx-background-color: #8AA8AE;
+    -fx-prompt-text-fill : #000000;
+    -fx-text-fill: #000000;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-font-size: 48;
+}
+
+.password-field {
+    -fx-background-color: #8AA8AE;
+    -fx-prompt-text-fill : #000000;
+    -fx-text-fill: #000000;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-font-size: 48;
+}
