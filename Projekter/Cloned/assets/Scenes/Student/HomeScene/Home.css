@@ -1,0 +1,17 @@
+.assignmentDescription {
+    -fx-background-color: #8AA8AE;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+    -fx-prompt-text-fill: #F7F7F7;
+}
+
+.assignmentTitle {
+    -fx-text-fill: #F7F7F7;
+    -fx-font-size: 48;
+}
+
+.placeHolderThumbnail {
+    -fx-background-color: #000000;
+    -fx-prompt-text-fill: #F7F7F7;
+    -fx-font-size: 16;
+}

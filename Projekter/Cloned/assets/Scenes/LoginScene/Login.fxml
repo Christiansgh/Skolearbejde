@@ -1,0 +1,21 @@
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+
+<AnchorPane prefWidth = "1920" prefHeight = "1080" styleClass = "rootBackground" stylesheets = "@/assets/css/Root.css">
+    <children>
+        <AnchorPane prefWidth = "1920" prefHeight = "60" styleClass = "rootTaskBar" stylesheets = "@/assets/css/Root.css" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-3.0">
+            <children>
+                <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5" AnchorPane.bottomAnchor="5" AnchorPane.topAnchor="5">
+                    <image>
+                        <Image url="@assets/images/Resono.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <TextField alignment="CENTER" layoutX="240.0" layoutY="194.0" promptText="Indtast Brugernavn" AnchorPane.leftAnchor="640" AnchorPane.rightAnchor="640" AnchorPane.bottomAnchor="360" AnchorPane.topAnchor="600" stylesheets = "@login.css"/>
+        <PasswordField alignment="CENTER" layoutX="240.0" layoutY="141.0" promptText="Indtast Password" AnchorPane.leftAnchor="640" AnchorPane.rightAnchor="640" AnchorPane.bottomAnchor="120" AnchorPane.topAnchor="840" stylesheets = "@login.css"/>
+    </children>
+</AnchorPane>
