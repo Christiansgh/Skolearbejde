@@ -1,0 +1,23 @@
+.sceneBackground {
+    -fx-background-color: #333333;
+    -fx-border-color: #F7F7F7;
+    -fx-border-width: 3px;
+}
+
+.baseTaskBar {
+    -fx-background-color: #37474F;
+    -fx-border-color: #F7F7F7;
+    -fx-border-width: 3px;
+}
+
+.taskBarSearch {
+    -fx-background-color: #8AA8AE;
+    -fx-text-fill: #F7F7F7;
+    -fx-prompt-text-fill: #F7F7F7;
+    -fx-background-radius: 150;
+    -fx-font-size: 16;
+}
+
+
+
+

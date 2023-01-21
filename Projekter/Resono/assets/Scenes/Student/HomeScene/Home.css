@@ -1,8 +1,7 @@
 .assignmentDescription {
     -fx-background-color: #8AA8AE;
-    -fx-border-color: #000000;
-    -fx-border-width: 1px;
     -fx-prompt-text-fill: #F7F7F7;
+    -fx-background-radius: 15;
 }
 
 .assignmentTitle {
