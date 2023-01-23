@@ -12,7 +12,7 @@
 <?import javafx.scene.image.Image?>
 
 <!--Background / scene-->
-<AnchorPane prefWidth="1920" prefHeight="1080" stylesheets="@/assets/css/base.css" styleClass="sceneBackground" xmlns:fx="http://javafx.com/fxml" fx:controller="assets.controllers.BaseController">
+<AnchorPane prefWidth="1920" prefHeight="1080" xmlns:fx="http://javafx.com/fxml" fx:controller="assets.controllers.BaseController">
     <!--Taskbar-->
     <AnchorPane prefWidth = "1920" prefHeight = "60" stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" AnchorPane.topAnchor="-3" AnchorPane.leftAnchor="-3" AnchorPane.rightAnchor="-3">
         <!--Iconbuttons-->

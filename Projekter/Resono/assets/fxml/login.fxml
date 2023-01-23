@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<AnchorPane prefWidth="1920" prefHeight="1080" stylesheets="@/assets/css/base.css" styleClass="sceneBackground">
+<AnchorPane prefWidth="1920" prefHeight="1080" stylesheets="@/assets/css/base.css" styleClass="sceneBackground" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assets.controllers.LoginController">
     <!--Taskbar-->
     <AnchorPane prefWidth = "1920" prefHeight = "60" stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" AnchorPane.topAnchor="-3" AnchorPane.leftAnchor="-3" AnchorPane.rightAnchor="-3">
         <!--Logo-->
@@ -18,8 +18,8 @@
     </AnchorPane>
     <!--Login-->
     <VBox alignment="BOTTOM_CENTER" spacing="250" minHeight="500" minWidth="500" AnchorPane.leftAnchor="400" AnchorPane.rightAnchor="400" AnchorPane.topAnchor="30" AnchorPane.bottomAnchor="150">
-        <TextField alignment="CENTER" promptText="Indtast Brugernavn" stylesheets = "@/assets/css/login.css"/>
-        <PasswordField alignment="CENTER" promptText="Indtast Password" stylesheets = "@/assets/css/login.css"/>
+        <TextField fx:id="userNameField" alignment="CENTER" promptText="Indtast Brugernavn" stylesheets = "@/assets/css/login.css" onAction="#onEnter"/>
+        <PasswordField fx:id="passwordField" alignment="CENTER" promptText="Indtast Password" stylesheets = "@/assets/css/login.css" onAction="#onEnter"/>
     </VBox>
     <!--Welcome Text-->
     <Label text="VELKOMMEN" stylesheets = "@/assets/css/login.css" layoutX="200" layoutY="60"/>
