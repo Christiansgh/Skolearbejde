@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 /*
  * TODO:
- * button hover => scale.
+ * button hover => change background color?
  * 
  * popout sidebar = pane.setVisible(false);
  * 
@@ -20,6 +20,7 @@ import javafx.stage.Stage;
  * Fix the stage not being null for some reason?
  * - Use singleton pattern for the scenecontroller then use its methods inside the individual controllers.
  */
+
 public class MainMain extends Application {
     public static Stage stage;
     public static SceneController sceneController;
