@@ -1,0 +1,29 @@
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane prefWidth="1920" prefHeight="1080" stylesheets="@/assets/css/base.css" styleClass="sceneBackground">
+    <!--Taskbar-->
+    <AnchorPane prefWidth = "1920" prefHeight = "60" stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" AnchorPane.topAnchor="-3" AnchorPane.leftAnchor="-3" AnchorPane.rightAnchor="-3">
+        <!--Logo-->
+        <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="5">
+            <image>
+                <Image url="/assets/images/Resono.png" />
+            </image>
+        </ImageView>
+    </AnchorPane>
+    <!--Login-->
+    <VBox alignment="BOTTOM_CENTER" spacing="250" minHeight="500" minWidth="500" AnchorPane.leftAnchor="400" AnchorPane.rightAnchor="400" AnchorPane.topAnchor="30" AnchorPane.bottomAnchor="150">
+        <TextField alignment="CENTER" promptText="Indtast Brugernavn" stylesheets = "@/assets/css/login.css"/>
+        <PasswordField alignment="CENTER" promptText="Indtast Password" stylesheets = "@/assets/css/login.css"/>
+    </VBox>
+    <!--Welcome Text-->
+    <Label text="VELKOMMEN" stylesheets = "@/assets/css/login.css" layoutX="200" layoutY="60"/>
+</AnchorPane>
+        
+    
+    
