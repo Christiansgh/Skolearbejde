@@ -19,7 +19,7 @@ public class BaseController {
 
     @FXML Label x;
 
-    public void initialize() throws Exception {
+    public void initialize() {
         setNotificationsInvisible(true, true, true);
     }
 
@@ -27,8 +27,6 @@ public class BaseController {
     public void onNotificationsBtnClicked() {
         System.out.println("Clicked notifications");
         setNotificationsInvisible(false, false, false);
-        HomeController hc = new HomeController();
-        hc.setAssigmentFourinvisible();
     }
 
     public void onCloseNotificationsBtnClicked() {
@@ -52,7 +50,7 @@ public class BaseController {
     }
 
     //Home button handlers
-    public void onHomeBtnClicked() throws Exception {
+    public void onHomeBtnClicked() {
         System.out.println("Clicked home");
         SceneController.changeScene(MainMain.stage, "/assets/fxml/home.fxml");
     }

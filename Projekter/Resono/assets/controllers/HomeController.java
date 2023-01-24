@@ -33,10 +33,10 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //loadVideo(embed1, engine1, "https://www.youtube.com/embed/-1kj837fWpo?autoplay=1");
-        //loadVideo(embed2, engine2, "https://www.youtube.com/embed/ZXsQAXx_ao0?autoplay=1");
-        //loadVideo(embed3, engine3, "https://www.youtube.com/embed/tzoARMwZ2Vs?autoplay=1");
-        //loadVideo(embed4, engine4, "https://www.youtube.com/embed/IfFIY1-eXpM?autoplay=1");
+        loadVideo(embed1, engine1, "https://www.youtube.com/embed/-1kj837fWpo");
+        loadVideo(embed2, engine2, "https://www.youtube.com/embed/ZXsQAXx_ao0");
+        loadVideo(embed3, engine3, "https://www.youtube.com/embed/tzoARMwZ2Vs");
+        loadVideo(embed4, engine4, "https://www.youtube.com/embed/IfFIY1-eXpM");
     }
 
     public void onAssignmentClicked() {

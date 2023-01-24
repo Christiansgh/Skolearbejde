@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 /*
  * TODO:
  * button hover => change background color?
+ * - CSS Pseudoclasses
  * 
  * popout sidebar = pane.setVisible(false);
  * 
@@ -27,13 +28,15 @@ import javafx.stage.Stage;
  * maybe setup some buttons to control the video. Allowing for pausing, replay, playback speed, quality etc.
  * - this probably requires javascript, and might be out of the scope.
  * 
- * Swap the rounded off textfields w/ stackpanes --> rectangle(arcWidth + arcHeight for rounded corners + stroke) --> textfields on top
+ * Swap the rounded off textfields w/ stackpanes --> rectangle(arcWidth + arcHeight for rounded corners + stroke) --> labels on top
  * 
  * Figure out how to fit the application to the screensize on launch.
  * 
  * TextFields allow input. This is not good. Make stackpane --> shape --> Label
  * 
  * Make SVG path drawing arrows for dropdown menu
+ * -Fix them to be white instead of black. Maybe with a stroke on the inside & outside
+ *      -CSS does not affect SVG in FXML.
  */
 
 public class MainMain extends Application {
@@ -53,6 +56,14 @@ public class MainMain extends Application {
 
         //Set the icon of the app
         stage.getIcons().add(new Image("/assets/images/ResonoLogo.png"));
+
+        //set the previous dimensions to the previous ones on scene swaps.
+        double prevWidth = stage.getWidth();
+        double prevHeight = stage.getHeight();
+
+        //during scene swaps uses previous values
+        stage.setWidth(prevWidth);
+        stage.setHeight(prevHeight);
 
         //load the Scene
         SceneController.changeScene(stage, "/assets/fxml/task.fxml");

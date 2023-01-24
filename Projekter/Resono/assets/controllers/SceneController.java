@@ -11,6 +11,7 @@ public class SceneController {
             Parent root = FXMLLoader.load(SceneController.class.getResource(fxmlFilePath));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setMaximized(true);
             stage.show();
             System.out.println(root);
         } catch (Exception e) {
