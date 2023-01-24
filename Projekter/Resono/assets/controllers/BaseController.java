@@ -27,6 +27,8 @@ public class BaseController {
     public void onNotificationsBtnClicked() {
         System.out.println("Clicked notifications");
         setNotificationsInvisible(false, false, false);
+        HomeController hc = new HomeController();
+        hc.setAssigmentFourinvisible();
     }
 
     public void onCloseNotificationsBtnClicked() {

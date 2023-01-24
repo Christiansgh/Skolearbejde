@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml">
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/assets/css/base.css" styleClass="sceneBackground">
     <!--Base-->
     <fx:include source="base.fxml"/>
+    <!--Popout Sidepane-->
+    <VBox spacing="20" stylesheets="@/assets/css/task.css" styleClass="sideBarPopout" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+        
+    </VBox>
+    <!--Tags GridPane-->
+    <GridPane>
+
+    </GridPane>
+    <!--Description TextField-->
+    <TextField>
+
+    </TextField>
 </AnchorPane>
