@@ -1,3 +1,17 @@
-.sideBarPopout {
+.sideBar {
     -fx-background-color: #8AA8AE;
+    -fx-border-color: #F7F7F7;
+    -fx-border-width: 2px;
+}
+
+.tag {
+    -fx-text-fill: #F7F7F7;
+    -fx-font-weight: 900;
+    -fx-font-size: 24;
+}
+
+.assignmentDescription {
+    -fx-text-fill: #F7F7F7;
+    -fx-font-size: 16;
+    -fx-padding: 0 5 10 5;
 }

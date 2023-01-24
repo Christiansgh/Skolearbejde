@@ -19,6 +19,21 @@ import javafx.stage.Stage;
  * 
  * Fix the stage not being null for some reason?
  * - Use singleton pattern for the scenecontroller then use its methods inside the individual controllers.
+ * 
+ * Add pseudoclasses to css, to improve imersion. Hover, focus etc.
+ * 
+ * use the login controller to set the invalid login to visible, and hide welcome.
+ * 
+ * maybe setup some buttons to control the video. Allowing for pausing, replay, playback speed, quality etc.
+ * - this probably requires javascript, and might be out of the scope.
+ * 
+ * Swap the rounded off textfields w/ stackpanes --> rectangle(arcWidth + arcHeight for rounded corners + stroke) --> textfields on top
+ * 
+ * Figure out how to fit the application to the screensize on launch.
+ * 
+ * TextFields allow input. This is not good. Make stackpane --> shape --> Label
+ * 
+ * Make SVG path drawing arrows for dropdown menu
  */
 
 public class MainMain extends Application {
@@ -40,6 +55,6 @@ public class MainMain extends Application {
         stage.getIcons().add(new Image("/assets/images/ResonoLogo.png"));
 
         //load the Scene
-        SceneController.changeScene(stage, "/assets/fxml/home.fxml");
+        SceneController.changeScene(stage, "/assets/fxml/task.fxml");
     }
 }

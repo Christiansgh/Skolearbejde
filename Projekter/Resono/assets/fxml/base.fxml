@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.SVGPath?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 
 <!--Background / scene-->
-<AnchorPane prefWidth="1920" prefHeight="1080" xmlns:fx="http://javafx.com/fxml" fx:controller="assets.controllers.BaseController">
+<AnchorPane prefWidth="1920" prefHeight="1080" xmlns:fx="http://javafx.com/fxml" fx:controller="assets.controllers.BaseController" maxHeight="1080" maxWidth="1920">
     <!--Taskbar-->
     <AnchorPane prefWidth = "1920" prefHeight = "60" stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" AnchorPane.topAnchor="-3" AnchorPane.leftAnchor="-3" AnchorPane.rightAnchor="-3">
         <!--Iconbuttons-->

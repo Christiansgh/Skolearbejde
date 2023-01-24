@@ -1,20 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/assets/css/base.css" styleClass="sceneBackground">
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/assets/css/base.css" styleClass="sceneBackground" fx:controller="assets.controllers.TaskController" maxHeight="1080" maxWidth="1920">
     <!--Base-->
-    <fx:include source="base.fxml"/>
-    <!--Popout Sidepane-->
-    <VBox spacing="20" stylesheets="@/assets/css/task.css" styleClass="sideBarPopout" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
-        
-    </VBox>
+    <fx:include source="base.fxml"/>  
+    <!--Sidepane-->
+    <AnchorPane AnchorPane.leftAnchor="-2" AnchorPane.topAnchor="52" AnchorPane.bottomAnchor="0" minWidth="400">   
+        <!--Videos-->
+        <VBox fx:id="sideBarPoppedOut" alignment="TOP_LEFT" spacing="0" stylesheets="@/assets/css/task.css" styleClass="sideBar" minHeight="980" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        </VBox>
+        <!--popInSidepaneBtn-->
+        <Button fx:id="popInSidepaneBtn" onMouseClicked="#onPopInSidepaneBtn" stylesheets="@/assets/css/task.css" styleClass="sideBar" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="-1" AnchorPane.rightAnchor="0">
+            <StackPane>
+                <!--TODO: Here goes SVG path for arrows-->
+                <!--TODO: Here goes label for text-->
+            </StackPane>
+        </Button>
+        <!--popOutSidepaneBtn-->
+        <Button fx:id="popOutSidepaneBtn" onMouseClicked="#onPopOutSidepaneBtn" stylesheets="@/assets/css/task.css" styleClass="sideBar" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="-1" AnchorPane.rightAnchor="0">
+            <StackPane>
+                <!--TODO: Here goes SVG path for arrows-->
+                <!--TODO: Here goes label for text-->
+            </StackPane>
+        </Button>
+    </AnchorPane> 
+    <!--Player / embedded video-->
+    <WebView fx:id="taskVideoEmbed" AnchorPane.leftAnchor="398" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="54" AnchorPane.bottomAnchor="500"/>
     <!--Tags GridPane-->
-    <GridPane>
-
-    </GridPane>
+    <HBox alignment="CENTER_LEFT" spacing="50" AnchorPane.leftAnchor="425" AnchorPane.rightAnchor="25" AnchorPane.topAnchor="540" AnchorPane.bottomAnchor="460">  
+        <!--#1-->
+        <StackPane alignment="CENTER">
+            <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+            <Label text="Tag 1" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+        </StackPane>
+        <!--#2--> 
+        <StackPane alignment="CENTER">
+            <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+            <Label text="Tag 2" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+        </StackPane>
+        <!--#3--> 
+        <StackPane alignment="CENTER">
+            <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+            <Label text="Tag 3" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+        </StackPane>
+        <!--#4--> 
+        <StackPane alignment="CENTER">
+            <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+            <Label text="Tag 4" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+        </StackPane>
+        <!--#5-->
+        <StackPane alignment="CENTER">
+            <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+            <Label text="Tag 5" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+        </StackPane>
+        <!--#6-->
+        <StackPane alignment="CENTER">
+            <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+            <Label text="Tag 6" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+        </StackPane>
+    </HBox>
     <!--Description TextField-->
-    <TextField>
-
-    </TextField>
+    <StackPane alignment="TOP_LEFT" AnchorPane.topAnchor="580" AnchorPane.bottomAnchor="15" AnchorPane.leftAnchor="425" AnchorPane.rightAnchor="25">  
+        <Rectangle width="1450" height="400" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+        <Label maxWidth="1425" stylesheets="@/assets/css/task.css" styleClass="assignmentDescription" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco........"/>
+    </StackPane>  
 </AnchorPane>
