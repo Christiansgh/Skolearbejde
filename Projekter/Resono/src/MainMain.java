@@ -7,13 +7,13 @@ import javafx.stage.Stage;
 
 /*
  * TODO:
- * button hover => change background color?
- * - CSS Pseudoclasses
- * 
- * popout sidebar = pane.setVisible(false);
  * 
  * Improvement opportunities:
- *  - Make the notification Stackpanes not be based on a set amount, but flexible, and with a scrollbar.
+ *  - Make the notification Stackpanes not be based on a set amount, but flexible, and with a scrollbar. Listview?
+ * 
+ * button hover => change background color?
+ * - CSS Pseudoclasses
+ * Add pseudoclasses to css, to improve imersion. Hover, focus etc.
  * 
  * Add queries to check if theres unread notifications.
  *  - if there is, add a red circle to the bell icon.
@@ -21,22 +21,13 @@ import javafx.stage.Stage;
  * Fix the stage not being null for some reason?
  * - Use singleton pattern for the scenecontroller then use its methods inside the individual controllers.
  * 
- * Add pseudoclasses to css, to improve imersion. Hover, focus etc.
+ * When the teacher controller & FXML is done, set the login controller => changeScene to teacherHome.fxml
  * 
- * use the login controller to set the invalid login to visible, and hide welcome.
+ * add multiline mode for descriptions. https://stackoverflow.com/questions/28093508/javafx-fxml-file-textarea-line-break-and-tab-in-text
+ * - If doing this, copy the taskdescription from teams and parse it in.
+ * - Also make the login error multi-line.
  * 
- * maybe setup some buttons to control the video. Allowing for pausing, replay, playback speed, quality etc.
- * - this probably requires javascript, and might be out of the scope.
- * 
- * Swap the rounded off textfields w/ stackpanes --> rectangle(arcWidth + arcHeight for rounded corners + stroke) --> labels on top
- * 
- * Figure out how to fit the application to the screensize on launch.
- * 
- * TextFields allow input. This is not good. Make stackpane --> shape --> Label
- * 
- * Make SVG path drawing arrows for dropdown menu
- * -Fix them to be white instead of black. Maybe with a stroke on the inside & outside
- *      -CSS does not affect SVG in FXML.
+ * set the stylesheet in the root node, unless you need to use the style from another sheet.
  */
 
 public class MainMain extends Application {
@@ -66,6 +57,6 @@ public class MainMain extends Application {
         stage.setHeight(prevHeight);
 
         //load the Scene
-        SceneController.changeScene(stage, "/assets/fxml/task.fxml");
+        SceneController.changeScene(stage, "/assets/fxml/home.fxml");
     }
 }

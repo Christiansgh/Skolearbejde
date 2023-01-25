@@ -6,7 +6,7 @@
 <?import javafx.scene.image.*?>
 
 <!--Background / scene-->
-<AnchorPane prefWidth="1920" prefHeight="1080" xmlns:fx="http://javafx.com/fxml" fx:controller="assets.controllers.BaseController" maxHeight="1080" maxWidth="1920">
+<AnchorPane fx:id="main" prefWidth="1920" prefHeight="1080" xmlns:fx="http://javafx.com/fxml" fx:controller="assets.controllers.BaseController" maxHeight="1080" maxWidth="1920">
     <!--Taskbar-->
     <AnchorPane prefWidth = "1920" prefHeight = "60" stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" AnchorPane.topAnchor="-3" AnchorPane.leftAnchor="-3" AnchorPane.rightAnchor="-3">
         <!--Iconbuttons-->
@@ -14,12 +14,12 @@
             <!--User-->
             <StackPane alignment="CENTER">
                 <Circle radius="25" fill="#8AA8AE" stroke="#000000" strokeType="OUTSIDE" strokeWidth="2" fx:id="userBtn" onMouseClicked="#onUserBtnClicked"/>
-                <SVGPath scaleX="2" scaleY="2" stroke="#000000" strokeWidth="1.0" content="M14.023,12.154c1.514-1.192,2.488-3.038,2.488-5.114c0-3.597-2.914-6.512-6.512-6.512c-3.597,0-6.512,2.916-6.512,6.512c0,2.076,0.975,3.922,2.489,5.114c-2.714,1.385-4.625,4.117-4.836,7.318h1.186c0.229-2.998,2.177-5.512,4.86-6.566c0.853,0.41,1.804,0.646,2.813,0.646c1.01,0,1.961-0.236,2.812-0.646c2.684,1.055,4.633,3.568,4.859,6.566h1.188C18.648,16.271,16.736,13.539,14.023,12.154z M10,12.367c-2.943,0-5.328-2.385-5.328-5.327c0-2.943,2.385-5.328,5.328-5.328c2.943,0,5.328,2.385,5.328,5.328C15.328,9.982,12.943,12.367,10,12.367z"/>
+                <SVGPath onMouseClicked="#onUserBtnClicked" scaleX="2" scaleY="2" stroke="#000000" strokeWidth="1.0" content="M14.023,12.154c1.514-1.192,2.488-3.038,2.488-5.114c0-3.597-2.914-6.512-6.512-6.512c-3.597,0-6.512,2.916-6.512,6.512c0,2.076,0.975,3.922,2.489,5.114c-2.714,1.385-4.625,4.117-4.836,7.318h1.186c0.229-2.998,2.177-5.512,4.86-6.566c0.853,0.41,1.804,0.646,2.813,0.646c1.01,0,1.961-0.236,2.812-0.646c2.684,1.055,4.633,3.568,4.859,6.566h1.188C18.648,16.271,16.736,13.539,14.023,12.154z M10,12.367c-2.943,0-5.328-2.385-5.328-5.327c0-2.943,2.385-5.328,5.328-5.328c2.943,0,5.328,2.385,5.328,5.328C15.328,9.982,12.943,12.367,10,12.367z"/>
             </StackPane>
             <!--Bell-->
             <StackPane alignment="CENTER">
-                <Circle radius="25" fill="#8AA8AE" stroke="#000000" strokeType="OUTSIDE" strokeWidth="2" fx:id="notificationsBtn" onMouseClicked="#onNotificationsBtnClicked"/>
-                <SVGPath onMouseClicked="#onNotificationsBtnClicked" scaleX="2" scaleY="2" stroke="#000000" strokeWidth="1.0" content="M14.38,3.467l0.232-0.633c0.086-0.226-0.031-0.477-0.264-0.559c-0.229-0.081-0.48,0.033-0.562,0.262l-0.234,0.631C10.695,2.38,7.648,3.89,6.616,6.689l-1.447,3.93l-2.664,1.227c-0.354,0.166-0.337,0.672,0.035,0.805l4.811,1.729c-0.19,1.119,0.445,2.25,1.561,2.65c1.119,0.402,2.341-0.059,2.923-1.039l4.811,1.73c0,0.002,0.002,0.002,0.002,0.002c0.23,0.082,0.484-0.033,0.568-0.262c0.049-0.129,0.029-0.266-0.041-0.377l-1.219-2.586l1.447-3.932C18.435,7.768,17.085,4.676,14.38,3.467 M9.215,16.211c-0.658-0.234-1.054-0.869-1.014-1.523l2.784,0.998C10.588,16.215,9.871,16.447,9.215,16.211 M16.573,10.27l-1.51,4.1c-0.041,0.107-0.037,0.227,0.012,0.33l0.871,1.844l-4.184-1.506l-3.734-1.342l-4.185-1.504l1.864-0.857c0.104-0.049,0.188-0.139,0.229-0.248l1.51-4.098c0.916-2.487,3.708-3.773,6.222-2.868C16.187,5.024,17.489,7.783,16.573,10.27"/>
+                <Circle radius="25" fill="#8AA8AE" stroke="#000000" strokeType="OUTSIDE" strokeWidth="2" fx:id="notificationsBtn" onMouseClicked="#toggleNotifications"/>
+                <SVGPath onMouseClicked="#toggleNotifications" scaleX="2" scaleY="2" stroke="#000000" strokeWidth="1.0" content="M14.38,3.467l0.232-0.633c0.086-0.226-0.031-0.477-0.264-0.559c-0.229-0.081-0.48,0.033-0.562,0.262l-0.234,0.631C10.695,2.38,7.648,3.89,6.616,6.689l-1.447,3.93l-2.664,1.227c-0.354,0.166-0.337,0.672,0.035,0.805l4.811,1.729c-0.19,1.119,0.445,2.25,1.561,2.65c1.119,0.402,2.341-0.059,2.923-1.039l4.811,1.73c0,0.002,0.002,0.002,0.002,0.002c0.23,0.082,0.484-0.033,0.568-0.262c0.049-0.129,0.029-0.266-0.041-0.377l-1.219-2.586l1.447-3.932C18.435,7.768,17.085,4.676,14.38,3.467 M9.215,16.211c-0.658-0.234-1.054-0.869-1.014-1.523l2.784,0.998C10.588,16.215,9.871,16.447,9.215,16.211 M16.573,10.27l-1.51,4.1c-0.041,0.107-0.037,0.227,0.012,0.33l0.871,1.844l-4.184-1.506l-3.734-1.342l-4.185-1.504l1.864-0.857c0.104-0.049,0.188-0.139,0.229-0.248l1.51-4.098c0.916-2.487,3.708-3.773,6.222-2.868C16.187,5.024,17.489,7.783,16.573,10.27"/>
             </StackPane>
             <!--Home-->
             <StackPane alignment="CENTER">
@@ -28,7 +28,7 @@
             </StackPane>
         </HBox>
         <!--Search-->
-        <TextField promptText="SØG HER!" alignment="CENTER_LEFT" minHeight="35" stylesheets="@/assets/css/base.css" styleClass="taskBarSearch" AnchorPane.rightAnchor="480" AnchorPane.leftAnchor="480" AnchorPane.topAnchor="10"/>
+        <TextField promptText="SØG HER!" alignment="CENTER_LEFT" minHeight="35" styleClass="taskBarSearch" AnchorPane.rightAnchor="480" AnchorPane.leftAnchor="480" AnchorPane.topAnchor="10"/>
         <!--Logo-->
         <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="5">
             <image>
@@ -39,37 +39,37 @@
     <!--Notification Box-->
     <AnchorPane fx:id="notificationBox" AnchorPane.rightAnchor="145" AnchorPane.topAnchor="50">
         <!--Notifs-->
-        <VBox fx:id="notificationsBox" alignment="TOP_LEFT" spacing="0" stylesheets="@/assets/css/base.css" styleClass="notificationsBox">
+        <VBox fx:id="notificationsBox" alignment="TOP_LEFT" spacing="0" styleClass="notificationsBox">
             <!--#1-->
             <StackPane>
-                <Label text="Test1" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" stylesheets="@/assets/css/base.css" styleClass="notificationsBox"/>
+                <Label text="Test1" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" styleClass="notificationsBox"/>
                 <Circle/>
             </StackPane>
             <!--#2-->
             <StackPane>
-                <Label text="Test2" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" stylesheets="@/assets/css/base.css" styleClass="notificationsBox"/>
+                <Label text="Test2" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" styleClass="notificationsBox"/>
                 <Circle/>
             </StackPane>
             <!--#3-->
             <StackPane>
-                <Label text="Test3" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" stylesheets="@/assets/css/base.css" styleClass="notificationsBox"/>
+                <Label text="Test3" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" styleClass="notificationsBox"/>
                 <Circle/>
             </StackPane>
             <!--#4-->
             <StackPane>
-                <Label text="Test4" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" stylesheets="@/assets/css/base.css" styleClass="notificationsBox"/>
+                <Label text="Test4" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" styleClass="notificationsBox"/>
                 <Circle/>
             </StackPane>
             <!--#5-->
             <StackPane>
-                <Label text="Test5" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" stylesheets="@/assets/css/base.css" styleClass="notificationsBox"/>
+                <Label text="Test5" alignment="TOP_LEFT" minHeight="100" maxHeight="100" minWidth="250" maxWidth="250" styleClass="notificationsBox"/>
                 <Circle/>
             </StackPane>
         </VBox>
         <!--Close btn-->
         <StackPane AnchorPane.rightAnchor="-8" AnchorPane.topAnchor="-8">
-            <Circle fx:id="closeNotificationsBtn" onMouseClicked="#onCloseNotificationsBtnClicked" radius="10" fill="#d70a0a" stroke="#000000" strokeType="OUTSIDE" strokeWidth="2"/>
-            <Label fx:id="x" text="X" textFill="#000000" onMouseClicked="#onCloseNotificationsBtnClicked">
+            <Circle fx:id="closeNotificationsBtn" onMouseClicked="#toggleNotifications" radius="10" fill="#d70a0a" stroke="#000000" strokeType="OUTSIDE" strokeWidth="2"/>
+            <Label fx:id="x" text="X" textFill="#000000" onMouseClicked="#toggleNotifications">
                 <font>
                     <Font name="System Bold"/>
                 </font>

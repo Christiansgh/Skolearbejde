@@ -5,37 +5,35 @@
 <?import javafx.scene.web.WebView?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/assets/css/base.css" styleClass="sceneBackground" fx:controller="assets.controllers.TaskController" maxHeight="1080" maxWidth="1920">
-    <!--Base-->
-    <fx:include source="base.fxml"/>  
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/assets/css/base.css, @/assets/css/task.css" styleClass="sceneBackground" fx:controller="assets.controllers.TaskController" maxHeight="1080" maxWidth="1920">
     <!--Sidepane-->
     <AnchorPane AnchorPane.leftAnchor="-2" AnchorPane.topAnchor="52" AnchorPane.bottomAnchor="0" minWidth="400">   
         <!--Videos-->
-        <VBox fx:id="sideBarPoppedOut" alignment="TOP_LEFT" spacing="0" stylesheets="@/assets/css/task.css" styleClass="sideBar" minHeight="980" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <VBox fx:id="sideBarPoppedOut" alignment="TOP_LEFT" spacing="0" styleClass="sideBar" minHeight="980" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         </VBox>
         <!--popInSidepaneBtn-->
-        <AnchorPane minWidth="400" maxHeight="50" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="0">
-            <Button fx:id="popInSidepaneBtn" onMouseClicked="#onPopInSidepaneBtn" stylesheets="@/assets/css/task.css" styleClass="sideBar" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="-1" AnchorPane.rightAnchor="0"/>
+        <AnchorPane fx:id="popInSidepane" minWidth="400" maxHeight="50" onMouseClicked="#toggleSidepane" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="0">
+            <Button styleClass="sideBar" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0"/>
             <!--left arrows-->
-            <SVGPath rotate="-90" scaleX="2" scaleY="2" onMouseClicked="#onPopInSidepaneBtn" fx:id="inUL" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
-            <SVGPath rotate="-90" scaleX="2" scaleY="2" onMouseClicked="#onPopInSidepaneBtn" fx:id="inLL" AnchorPane.leftAnchor="20" AnchorPane.bottomAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>       
+            <SVGPath rotate="-90" scaleX="2" scaleY="2" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
+            <SVGPath rotate="-90" scaleX="2" scaleY="2" AnchorPane.leftAnchor="20" AnchorPane.bottomAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
             <!--right arrows-->
-            <SVGPath rotate="-90" scaleX="2" scaleY="2" onMouseClicked="#onPopInSidepaneBtn" fx:id="inUR" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
-            <SVGPath rotate="-90" scaleX="2" scaleY="2" onMouseClicked="#onPopInSidepaneBtn" fx:id="inLR" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
+            <SVGPath rotate="-90" scaleX="2" scaleY="2" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
+            <SVGPath rotate="-90" scaleX="2" scaleY="2" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
             <!--text-->
-            <Label text="  = = = = EPISODER = = = = " onMouseClicked="#onPopInSidepaneBtn" fx:id="inLabel" stylesheets="@/assets/css/task.css" styleClass="tag" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30"/>
+            <Label text="  = = = = EPISODER = = = = " styleClass="tag" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30"/>
         </AnchorPane>
         <!--popOutSidepaneBtn-->
-        <AnchorPane minWidth="400" maxHeight="50" onMouseClicked="#onPopOutSidepaneBtn" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="0">
-            <Button fx:id="popOutSidepaneBtn" onMouseClicked="#onPopOutSidepaneBtn" stylesheets="@/assets/css/task.css" styleClass="sideBar" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0"/>
+        <AnchorPane fx:id="popOutSidepane" minWidth="400" maxHeight="50" onMouseClicked="#toggleSidepane" AnchorPane.topAnchor="1" AnchorPane.leftAnchor="0">
+            <Button styleClass="sideBar" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0"/>
             <!--left arrows-->
-            <SVGPath rotate="90" scaleX="2" scaleY="2" onMouseClicked="#onPopOutSidepaneBtn" fx:id="outUL" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
-            <SVGPath rotate="90" scaleX="2" scaleY="2" onMouseClicked="#onPopOutSidepaneBtn" fx:id="outLL" AnchorPane.leftAnchor="20" AnchorPane.bottomAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>       
+            <SVGPath rotate="90" scaleX="2" scaleY="2" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
+            <SVGPath rotate="90" scaleX="2" scaleY="2" AnchorPane.leftAnchor="20" AnchorPane.bottomAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
             <!--right arrows-->
-            <SVGPath rotate="90" scaleX="2" scaleY="2" onMouseClicked="#onPopOutSidepaneBtn" fx:id="outUR" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
-            <SVGPath rotate="90" scaleX="2" scaleY="2" onMouseClicked="#onPopOutSidepaneBtn" fx:id="outLR" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
+            <SVGPath rotate="90" scaleX="2" scaleY="2" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
+            <SVGPath rotate="90" scaleX="2" scaleY="2" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="5" content="m5.42045,3.12812l-2.62768,-4.9834l1.73054,0l2.62768,4.9834l-2.62768,4.9834l-1.73054,0l2.62768,-4.9834"/>
             <!--text-->
-            <Label text="  = = = = EPISODER = = = = " onMouseClicked="#onPopOutSidepaneBtn" fx:id="outLabel" stylesheets="@/assets/css/task.css" styleClass="tag" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30"/>
+            <Label text="  = = = = EPISODER = = = = " styleClass="tag" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30"/>
         </AnchorPane>
     </AnchorPane> 
     <!--Player / embedded video-->
@@ -45,37 +43,40 @@
         <!--#1-->
         <StackPane alignment="CENTER">
             <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
-            <Label text="Tag 1" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+            <Label text="Tag 1" styleClass="tag"/>
         </StackPane>
         <!--#2--> 
         <StackPane alignment="CENTER">
             <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
-            <Label text="Tag 2" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+            <Label text="Tag 2" styleClass="tag"/>
         </StackPane>
         <!--#3--> 
         <StackPane alignment="CENTER">
             <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
-            <Label text="Tag 3" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+            <Label text="Tag 3" styleClass="tag"/>
         </StackPane>
         <!--#4--> 
         <StackPane alignment="CENTER">
             <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
-            <Label text="Tag 4" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+            <Label text="Tag 4" styleClass="tag"/>
         </StackPane>
         <!--#5-->
         <StackPane alignment="CENTER">
             <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
-            <Label text="Tag 5" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+            <Label text="Tag 5" styleClass="tag"/>
         </StackPane>
         <!--#6-->
         <StackPane alignment="CENTER">
             <Rectangle width="100" height="40" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
-            <Label text="Tag 6" stylesheets="@/assets/css/task.css" styleClass="tag"/>
+            <Label text="Tag 6" styleClass="tag"/>
         </StackPane>
     </HBox>
     <!--Description TextField-->
     <StackPane alignment="TOP_LEFT" AnchorPane.topAnchor="580" AnchorPane.bottomAnchor="15" AnchorPane.leftAnchor="425" AnchorPane.rightAnchor="25">  
         <Rectangle width="1450" height="400" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
-        <Label maxWidth="1425" stylesheets="@/assets/css/task.css" styleClass="assignmentDescription" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco........"/>
+        <Label maxWidth="1425" styleClass="assignmentDescription" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco........"/>
     </StackPane> 
+
+    <!--Base-->
+    <fx:include source="base.fxml"/>
 </AnchorPane>

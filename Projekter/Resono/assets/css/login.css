@@ -18,3 +18,8 @@
     -fx-text-fill: #F7F7F7;
     -fx-font-size: 256;
 }
+
+.error {
+    -fx-text-fill: #a00404;
+    -fx-font-size: 128;
+}

@@ -2,11 +2,18 @@ package assets.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import src.MainMain;
 
 public class BaseController { 
+    //keeping track of notifications togglestate
+    private boolean showNotifications = true;
+    
+    @FXML
+    private AnchorPane main;
+
     //notifications
     @FXML
     private Circle notificationBtn;
@@ -20,25 +27,16 @@ public class BaseController {
     @FXML Label x;
 
     public void initialize() {
-        setNotificationsInvisible(true, true, true);
+        main.setPickOnBounds(false); // To only click on visible parts (this allows notifications to be on top)
+        toggleNotifications();
     }
-
-    //Notification button handlers
-    public void onNotificationsBtnClicked() {
-        System.out.println("Clicked notifications");
-        setNotificationsInvisible(false, false, false);
-    }
-
-    public void onCloseNotificationsBtnClicked() {
-        System.out.println("Closed notifications");
-        setNotificationsInvisible(true, true, true);
-    } 
     
-    //Invisible setters
-    private void setNotificationsInvisible(boolean notificationsBox, boolean closeNotificationsBtn, boolean x) {
-        this.notificationsBox.setVisible(!notificationsBox);
-        this.closeNotificationsBtn.setVisible(!closeNotificationsBtn);
-        this.x.setVisible(!x);
+    public void toggleNotifications() {
+        System.out.println("Clicked notifications");
+        showNotifications = !showNotifications;
+        this.notificationsBox.setVisible(showNotifications);
+        this.closeNotificationsBtn.setVisible(showNotifications);
+        this.x.setVisible(showNotifications);
     }
     
     //placeholder for now. Can implement settings here.

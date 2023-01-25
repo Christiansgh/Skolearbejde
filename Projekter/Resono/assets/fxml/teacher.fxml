@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/assets/css/base.css" styleClass="sceneBackground" fx:controller="assets.controllers.TeacherController">
+    <!--Base-->
+    <fx:include source="base.fxml"/>
+    <!--Teacher functions-->
+    <HBox alignment="CENTER" spacing="250" AnchorPane.leftAnchor="75" AnchorPane.topAnchor="135" AnchorPane.bottomAnchor="75" AnchorPane.rightAnchor="75">
+        <!--Opgaver-->
+        <AnchorPane stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" prefWidth="375" prefHeight="600">
+            <VBox spacing="20" alignment="TOP_CENTER" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+                <!--Opgaver Tag-->
+                <StackPane>
+                    <Rectangle fill=""/>
+                    <Label/>
+                </StackPane>
+                <!--Opret-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Vis alle-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Rediger-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Slet-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Tildel-->
+                <StackPane>
+                    
+                </StackPane>
+            </VBox>
+        </AnchorPane>
+        <!--Tags-->
+        <AnchorPane stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" prefWidth="375" prefHeight="600">   
+            <VBox>
+                <!--Tags Tag-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Opret-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Vis alle-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Rediger-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Slet-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Tildel-->
+                <StackPane>
+                    
+                </StackPane>
+            </VBox>
+        </AnchorPane>
+        <!--Brugere-->
+        <AnchorPane stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" prefWidth="375" prefHeight="600">
+            <VBox>
+                <!--Brugere Tag-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Opret-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Vis alle-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Rediger-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Slet-->
+                <StackPane>
+                    
+                </StackPane>
+                <!--Statistikker-->
+                <StackPane>
+                    
+                </StackPane>
+            </VBox>
+        </AnchorPane>
+    </HBox>
+</AnchorPane>

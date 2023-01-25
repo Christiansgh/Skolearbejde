@@ -6,9 +6,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<AnchorPane prefWidth="1920" prefHeight="1080" stylesheets="@/assets/css/base.css" styleClass="sceneBackground" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assets.controllers.LoginController">
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assets.controllers.LoginController" stylesheets = "@/assets/css/login.css">
+    <AnchorPane prefWidth="1920" prefHeight="1080" stylesheets="@/assets/css/base.css" styleClass="sceneBackground"/>
     <!--Taskbar-->
-    <AnchorPane prefWidth = "1920" prefHeight = "60" stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" AnchorPane.topAnchor="-3" AnchorPane.leftAnchor="-3" AnchorPane.rightAnchor="-3">
+    <AnchorPane prefWidth = "1920" prefHeight = "60" styleClass="baseTaskBar" AnchorPane.topAnchor="-3" AnchorPane.leftAnchor="-3" AnchorPane.rightAnchor="-3">
         <!--Logo-->
         <ImageView fitHeight="60" fitWidth="60" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="5">
             <image>
@@ -18,11 +19,13 @@
     </AnchorPane>
     <!--Login-->
     <VBox alignment="BOTTOM_CENTER" spacing="250" minHeight="500" minWidth="500" AnchorPane.leftAnchor="400" AnchorPane.rightAnchor="400" AnchorPane.topAnchor="30" AnchorPane.bottomAnchor="150">
-        <TextField fx:id="userNameField" alignment="CENTER" promptText="Indtast Brugernavn" stylesheets = "@/assets/css/login.css" onAction="#onEnter"/>
-        <PasswordField fx:id="passwordField" alignment="CENTER" promptText="Indtast Password" stylesheets = "@/assets/css/login.css" onAction="#onEnter"/>
+        <TextField fx:id="userNameField" alignment="CENTER" promptText="Indtast Brugernavn" onAction="#onEnter"/>
+        <PasswordField fx:id="passwordField" alignment="CENTER" promptText="Indtast Password" onAction="#onEnter"/>
     </VBox>
     <!--Welcome Text-->
-    <Label text="VELKOMMEN" stylesheets = "@/assets/css/login.css" layoutX="200" layoutY="60"/>
+    <Label fx:id="welcomeLabel" text="VELKOMMEN"  layoutX="200" layoutY="60"/>
+    <!--Error Text-->
+    <Label fx:id="errorLabel" text="Forkert login. Prøv igen." styleClass="error" layoutX="275" layoutY="80"/>
 </AnchorPane>
         
     
