@@ -1,0 +1,17 @@
+.category {
+    -fx-text-fill: #F7F7F7;
+    -fx-font-weight: 900;
+    -fx-font-size: 48;
+}
+
+.buttonNotDone {
+    -fx-text-fill: #980505;
+    -fx-font-weight: 900;
+    -fx-font-size: 24;
+}
+
+.buttonDone {
+    -fx-text-fill: #F7F7F7;
+    -fx-font-weight: 900;
+    -fx-font-size: 24;
+}

@@ -43,7 +43,7 @@ public class LoginController {
         else if(userNameField.getText().equals(teacherUN) && passwordField.getText().equals(teacherPW)) {
             System.out.println("Teacher Authentication Successful");
             //set the scene to teacher homepage.
-            SceneController.changeScene(src.MainMain.stage, "/assets/fxml/home.fxml");
+            SceneController.changeScene(src.MainMain.stage, "/assets/fxml/teacher.fxml");
             System.out.println("Switching to home/landing page.");
         }
         

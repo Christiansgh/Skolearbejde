@@ -4,97 +4,124 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/assets/css/base.css" styleClass="sceneBackground" fx:controller="assets.controllers.TeacherController">
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/assets/css/teacher.css" fx:controller="assets.controllers.TeacherController">
+    <AnchorPane stylesheets="@/assets/css/base.css" styleClass="sceneBackground" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"/>
     <!--Base-->
     <fx:include source="base.fxml"/>
     <!--Teacher functions-->
     <HBox alignment="CENTER" spacing="250" AnchorPane.leftAnchor="75" AnchorPane.topAnchor="135" AnchorPane.bottomAnchor="75" AnchorPane.rightAnchor="75">
         <!--Opgaver-->
         <AnchorPane stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" prefWidth="375" prefHeight="600">
-            <VBox spacing="20" alignment="TOP_CENTER" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+            <VBox spacing="50" alignment="TOP_CENTER" stylesheets="@/assets/css/teacher.css" AnchorPane.topAnchor="25" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
                 <!--Opgaver Tag-->
                 <StackPane>
-                    <Rectangle fill=""/>
-                    <Label/>
+                    <Rectangle width="300" height="75" arcWidth="50" arcHeight="50" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                    <Label text="OPGAVER" styleClass="category"/>
                 </StackPane>
-                <!--Opret-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Vis alle-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Rediger-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Slet-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Tildel-->
-                <StackPane>
-                    
-                </StackPane>
+                <!--Features-->
+                <VBox spacing="75" alignment="TOP_CENTER">
+                    <!--Opret-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="OPRET" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Vis alle-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="VIS" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Rediger-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="OPDATER" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Slet-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="SLET" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Tildel-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="EXTRA" styleClass="buttonNotDone"/>
+                    </StackPane>
+                </VBox>
             </VBox>
         </AnchorPane>
         <!--Tags-->
         <AnchorPane stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" prefWidth="375" prefHeight="600">   
-            <VBox>
+            <VBox spacing="50" alignment="TOP_CENTER" stylesheets="@/assets/css/teacher.css" AnchorPane.topAnchor="25" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
                 <!--Tags Tag-->
                 <StackPane>
-                    
+                    <Rectangle width="300" height="75" arcWidth="50" arcHeight="50" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                    <Label text="TAGS" styleClass="category"/>
                 </StackPane>
-                <!--Opret-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Vis alle-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Rediger-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Slet-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Tildel-->
-                <StackPane>
-                    
-                </StackPane>
+                <!--Features-->
+                <VBox spacing="75" alignment="TOP_CENTER">
+                    <!--Opret-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="OPRET" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Vis alle-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="VIS" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Rediger-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="OPDATER" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Slet-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="SLET" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Tildel-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="EXTRA" styleClass="buttonNotDone"/>
+                    </StackPane>
+                </VBox>
             </VBox>
         </AnchorPane>
         <!--Brugere-->
         <AnchorPane stylesheets="@/assets/css/base.css" styleClass="baseTaskBar" prefWidth="375" prefHeight="600">
-            <VBox>
-                <!--Brugere Tag-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Opret-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Vis alle-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Rediger-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Slet-->
-                <StackPane>
-                    
-                </StackPane>
-                <!--Statistikker-->
-                <StackPane>
-                    
-                </StackPane>
+            <VBox spacing="50" alignment="TOP_CENTER" stylesheets="@/assets/css/teacher.css" AnchorPane.topAnchor="25" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+                <VBox spacing="75" alignment="TOP_CENTER">    
+                    <!--Brugere Tag-->
+                    <StackPane>
+                        <Rectangle width="300" height="75" arcWidth="50" arcHeight="50" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                        <Label text="BRUGERE" styleClass="category"/>
+                    </StackPane>
+                    <!--Features-->
+                    <!--Opret-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="OPRET" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Vis alle-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="VIS" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Rediger-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="OPDATER" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Slet-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="SLET" styleClass="buttonNotDone"/>
+                    </StackPane>
+                    <!--Tildel-->
+                    <StackPane>
+                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
+                        <Label text="EXTRA" styleClass="buttonNotDone"/>
+                    </StackPane>
+                </VBox>
             </VBox>
         </AnchorPane>
     </HBox>

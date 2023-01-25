@@ -57,6 +57,6 @@ public class MainMain extends Application {
         stage.setHeight(prevHeight);
 
         //load the Scene
-        SceneController.changeScene(stage, "/assets/fxml/home.fxml");
+        SceneController.changeScene(stage, "/assets/fxml/teacher.fxml");
     }
 }
