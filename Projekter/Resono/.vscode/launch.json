@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MainMain",
+            "request": "launch",
+            "mainClass": "src.MainMain",
+            "projectName": "Resono_5449cf4c"
+        },
+        {
+            "type": "java",
             "name": "Launch Main",
             "request": "launch",
             "mainClass": "src.Main",

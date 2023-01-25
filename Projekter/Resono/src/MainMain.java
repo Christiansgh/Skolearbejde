@@ -4,6 +4,7 @@ import assets.controllers.SceneController;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import src.DataAccesLayer.DAL;
 
 /*
  * TODO:
@@ -57,6 +58,6 @@ public class MainMain extends Application {
         stage.setHeight(prevHeight);
 
         //load the Scene
-        SceneController.changeScene(stage, "/assets/fxml/teacher.fxml");
+        SceneController.changeScene(stage, "/assets/fxml/login.fxml");
     }
 }

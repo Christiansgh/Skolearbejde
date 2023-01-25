@@ -4,12 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import src.DataAccesLayer.DAL;
 
 public class LoginController {
-    private String studentUN = "CorrectStudentUsername";
-    private String studentPW = "CorrectStudentPassword";
-    private String teacherUN = "CorrectTeacherUsername";
-    private String teacherPW = "CorrectTeacherPassword";
+    private DAL dal;
 
     @FXML 
     private Label welcomeLabel, errorLabel;
@@ -30,28 +28,34 @@ public class LoginController {
 
     //authenticates the login, switches the scene to home on correct credentials, throws error message on wrongful login.
     private void authenticate() {
+        //instaniate the connection
+        dal = new DAL("resono");
+
+        //check if the login credentials match
         System.out.println("Attempting Authentication");
-        //check if the login credentials match a student
-        if(userNameField.getText().equals(studentUN) && passwordField.getText().equals(studentPW)) {
-            System.out.println("Student Authentication Successful");
-            //set the scene to student homepage.
-            SceneController.changeScene(src.MainMain.stage, "/assets/fxml/home.fxml");
-            System.out.println("Switching to home/landing page.");
-        }
-
-        //check if the login credentials match a teacher
-        else if(userNameField.getText().equals(teacherUN) && passwordField.getText().equals(teacherPW)) {
-            System.out.println("Teacher Authentication Successful");
-            //set the scene to teacher homepage.
-            SceneController.changeScene(src.MainMain.stage, "/assets/fxml/teacher.fxml");
-            System.out.println("Switching to home/landing page.");
-        }
         
-        //use the login controller to set the invalid login to visible, and hide welcome.
-        else {
-            errorLabel.setVisible(true);
-            welcomeLabel.setVisible(false);
+        int result = dal.checkAuthentication(userNameField.getText(), passwordField.getText());
+        
+        //switch based on results
+        switch(result) {
+            // failed: use the login controller to set the invalid login to visible, and hide welcome.
+            case -1:
+                System.out.println("Authentication failed");
+                errorLabel.setVisible(true);
+                welcomeLabel.setVisible(false);
+                break;
+            // found student: set the scene to student homepage.
+            case 0:
+                System.out.println("Student Authentication Successful");
+                SceneController.changeScene(src.MainMain.stage, "/assets/fxml/home.fxml");
+                System.out.println("Switching to home/landing page.");
+                break;
+            // found teacher: set the scene to teacher homepage.
+            case 1:
+                System.out.println("Teacher Authentication Successful");
+                SceneController.changeScene(src.MainMain.stage, "/assets/fxml/teacher.fxml");
+                System.out.println("Switching to home/landing page.");
+                break;
         }
-
     }
 }

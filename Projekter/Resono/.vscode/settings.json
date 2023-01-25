@@ -8,6 +8,11 @@
         "c:\\Users\\Christian\\Desktop\\Libaries\\javafx-sdk-19\\lib\\javafx.media.jar",
         "c:\\Users\\Christian\\Desktop\\Libaries\\javafx-sdk-19\\lib\\javafx.swing.jar",
         "c:\\Users\\Christian\\Desktop\\Libaries\\javafx-sdk-19\\lib\\javafx.web.jar",
-        "c:\\Users\\Christian\\Desktop\\Libaries\\javafx-sdk-19\\lib\\javafx-swt.jar"
+        "c:\\Users\\Christian\\Desktop\\Libaries\\javafx-sdk-19\\lib\\javafx-swt.jar",
+        "c:\\Users\\Christian\\Desktop\\Libaries\\mssql-jdbc-11.2.1.jre17.jar"
+    ],
+    "sqltools.connections": [],
+    "dataworkspace.excludedProjects": [
+        "src/DataAccesLayer/test/test.sqlproj"
     ]
 }
