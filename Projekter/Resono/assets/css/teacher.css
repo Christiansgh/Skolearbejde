@@ -15,3 +15,27 @@
     -fx-font-weight: 900;
     -fx-font-size: 24;
 }
+
+.popOutWindow {
+    -fx-background-color: #8AA8AE;
+    -fx-border-color: #F7F7F7;
+    -fx-border-width: 3px;
+    -fx-opacity: 0.95;
+}
+
+.textBox {
+    -fx-text-fill: #F7F7F7;
+    -fx-prompt-text-fill : #F7F7F7;
+    -fx-background-color: #8AA8AE;
+    -fx-border-color: #F7F7F7;
+    -fx-border-width: 3px;
+    -fx-background-radius: 300;
+    -fx-font-size: 24;
+    -fx-opacity: 0.95;
+}
+
+
+    
+    
+    
+    
