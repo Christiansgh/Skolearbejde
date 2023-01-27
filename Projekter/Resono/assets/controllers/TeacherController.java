@@ -30,7 +30,6 @@ public class TeacherController {
     private int inputFieldsNeeded;
     private enum CRUD {
         INSERT,
-        READ,
         UPDATE,
         DELETE;
     }
@@ -53,7 +52,7 @@ public class TeacherController {
     @FXML private TextField tfOne, tfTwo, tfThree, tfFour;
 
     @FXML private Label tfOneUsername, tfTwoPassword, tfThreeUserType, tfOneTagText, tfTwoTagColor, tfThreeTagStrokeColor;
-    @FXML private Label tfOneTitle, tfTwoCreatorFN, tfThreeCreatorLN, tfFourAssignmentDescription;
+    @FXML private Label tfOneTitle, tfTwoCreatorFN, tfThreeCreatorLN, tfFourAssignmentDescription, tfOneDeleteUser;
 
     @FXML private SVGPath confirmLogo, declineLogo;
 
@@ -212,6 +211,49 @@ public class TeacherController {
         }
     }
 
+    //updates a user. 
+    //the other UPDATE functions follow a similar structure.
+    public void updateUser() {
+        System.out.println("Update User");
+        toggleWindow(); //set the window visible
+        hideAll(); //hide all textprompts
+    }
+
+    //updates a user. 
+    //the other DELETE functions follow a similar structure.
+    public void deleteUser() {
+        System.out.println("Delete User");
+        toggleWindow(); //set the window visible
+        hideAll(); //hide all textprompts
+        tfOne.setVisible(true); //set delete input field visible
+        tfOneDeleteUser.setVisible(true); //display GUI prompt
+
+        //listens for click of accpet button. On accept, check that there are no empty boxes, then executes the statement.
+        listenForAccept(confirmLogo, confirmBox, 1, CRUD.DELETE, "Logins");
+    }
+
+    public void deleteTag() {
+        System.out.println("Delete Tag");
+        toggleWindow(); 
+        hideAll(); 
+        tfOne.setVisible(true); 
+        tfOneDeleteUser.setVisible(true); 
+
+        //listens for click of accpet button. On accept, check that there are no empty boxes, then executes the statement.
+        listenForAccept(confirmLogo, confirmBox, 1, CRUD.DELETE, "Tags");
+    }
+
+    public void deleteAssignment() {
+        System.out.println("Delete Assignment");
+        toggleWindow();
+        hideAll(); 
+        tfOne.setVisible(true); 
+        tfOneDeleteUser.setVisible(true); 
+
+        //listens for click of accpet button. On accept, check that there are no empty boxes, then executes the statement.
+        listenForAccept(confirmLogo, confirmBox, 1, CRUD.DELETE, "Assignments");
+    }
+
     //declines & closes the popup window for teacher CRUD.
     public void decline() {
         System.out.println("Declined");
@@ -287,6 +329,22 @@ public class TeacherController {
             public void handle(Event arg0) {
                 selectCRUD(checkFields, crudEnum, tableName, column1, column2, column3, column4, tfOne.getText(), tfTwo.getText(), tfThree.getText(), tfFour.getText());
             } 
+        });
+    }
+
+    //Delete FROM
+    public void listenForAccept(SVGPath confirmLogo, Rectangle confirmBox, int checkFields, CRUD crudEnum, String tableName) {
+        confirmBox.setOnMouseClicked(new EventHandler<Event>() {
+            @Override
+            public void handle(Event arg0) {
+                selectCRUD(checkFields, crudEnum, tableName);
+            }       
+        });
+        confirmLogo.setOnMouseClicked(new EventHandler<Event>() {
+            @Override
+            public void handle(Event arg0) {
+                selectCRUD(checkFields, crudEnum, tableName);
+            }   
         });
     }
 
@@ -387,9 +445,33 @@ public class TeacherController {
         tagTable.setVisible(false);
         userTable.setVisible(false);
         assignmentTable.setVisible(false);
+        tfOneDeleteUser.setVisible(false);
     }
 
+    //DELETE
     //Service methods overloaded methods decide the CRUD function. Overloaded to accomodate 1-4 columns.
+    private void selectCRUD(int checkFields, CRUD crudEnum, String tableName) {
+        if(!isEmpty(checkFields)) {
+            System.out.println("Accepted");
+            DAL dal = new DAL("resono");
+            switch(crudEnum) {
+                case INSERT:
+                break;
+                case UPDATE:
+                //UPDATE QUERY
+                break;
+                case DELETE:
+                dal.deleteFrom(tableName, Integer.valueOf(tfOne.getText()));
+                break;
+            }
+            toggleWindow();
+        }
+        else {
+            System.out.println("One or more required textfield(s) are empty.");
+            //TODO: Put some visual notifier in the GUI.
+        }
+    }
+
     //1 column
     private void selectCRUD(int checkFields, CRUD crudEnum, String tableName, String column1, String value1) {
         if(!isEmpty(checkFields)) {
@@ -398,9 +480,6 @@ public class TeacherController {
             switch(crudEnum) {
                 case INSERT:
                 dal.insertInto(tableName, column1, value1);
-                break;
-                case READ:
-                //READ QUERY
                 break;
                 case UPDATE:
                 //UPDATE QUERY
@@ -426,9 +505,6 @@ public class TeacherController {
                 case INSERT:
                 dal.insertInto(tableName, column1, column2, value1, value2);
                 break;
-                case READ:
-                //READ QUERY
-                break;
                 case UPDATE:
                 //UPDATE QUERY
                 break;
@@ -453,9 +529,6 @@ public class TeacherController {
                 case INSERT:
                 dal.insertInto(tableName, column1, column2, column3, value1, value2, value3);
                 break;
-                case READ:
-                //READ QUERY
-                break;
                 case UPDATE:
                 //UPDATE QUERY
                 break;
@@ -479,9 +552,6 @@ public class TeacherController {
             switch(crudEnum) {
                 case INSERT:
                 dal.insertInto(tableName, column1, column2, column3, column4, value1, value2, value3, value4);
-                break;
-                case READ:
-                //READ QUERY
                 break;
                 case UPDATE:
                 //UPDATE QUERY

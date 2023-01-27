@@ -38,8 +38,8 @@
                     </StackPane>
                     <!--Slet-->
                     <StackPane>
-                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
-                        <Label text="SLET" styleClass="buttonNotDone"/>
+                        <Rectangle onMouseClicked="#deleteAssignment" width="300" height="60" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                        <Label onMouseClicked="#deleteAssignment" text="SLET" styleClass="buttonDone"/>
                     </StackPane>
                     <!--Tildel-->
                     <StackPane>
@@ -76,8 +76,8 @@
                     </StackPane>
                     <!--Slet-->
                     <StackPane>
-                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
-                        <Label text="SLET" styleClass="buttonNotDone"/>
+                        <Rectangle onMouseClicked="#deleteTag" width="300" height="60" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                        <Label onMouseClicked="#deleteTag" text="SLET" styleClass="buttonDone"/>
                     </StackPane>
                     <!--Tildel-->
                     <StackPane>
@@ -114,8 +114,8 @@
                     </StackPane>
                     <!--Slet-->
                     <StackPane>
-                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
-                        <Label text="SLET" styleClass="buttonNotDone"/>
+                        <Rectangle onMouseClicked="#deleteUser" width="300" height="60" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                        <Label onMouseClicked="#deleteUser" text="SLET" styleClass="buttonDone"/>
                     </StackPane>
                     <!--Tildel-->
                     <StackPane>
@@ -147,6 +147,7 @@
             <!--Field1-->
             <VBox spacing="10" alignment="CENTER_LEFT">
                 <StackPane alignment="CENTER">
+                    <Label fx:id="tfOneDeleteUser" text="Indtast ID'et som skal slettes" styleClass="boxText" minWidth="600"/>
                     <Label fx:id="tfOneTitle" text="Indtast titel" styleClass="boxText" minWidth="600"/>
                     <Label fx:id="tfOneTagText" text="Tekst" styleClass="boxText" minWidth="600"/>
                     <Label fx:id="tfOneUsername" text="Indtast Brugernavn" styleClass="boxText" minWidth="600"/>

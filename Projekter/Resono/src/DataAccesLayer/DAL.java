@@ -91,6 +91,16 @@ public class DAL {
     }
   }
 
+  //delete from method.
+  public void deleteFrom(String tableName, int id) {
+    try {
+      statement = connection.createStatement(); //instantiate the statement
+      statement.executeQuery(String.format("DELETE FROM %s WHERE id = %d", tableName, id));
+    } catch (SQLException e) {
+      System.out.println(e);
+    }
+  }
+
   //INSERT INTO prepared statement. Methods below are overloaded to accomidate for different amount of columns pr. table.
   //   - NB. factoring in "IDENTITY", the maximum amount of columns our table has is 4. If this number gets increased, we need to further overload than 4.
   //NOT DRY Code. Space for implementing servicemethods to reduce redundancy, but not enough time.
