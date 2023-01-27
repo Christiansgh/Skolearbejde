@@ -1,14 +1,25 @@
 package assets.controllers;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.SVGPath;
+import src.DataAccesLayer.Assignment;
 import src.DataAccesLayer.DAL;
+import src.DataAccesLayer.Tag;
+import src.DataAccesLayer.User;
 
 /*
  * In this version its only possible for textfield one to insert data into column 1. tf2 => column 2 etc.
@@ -23,30 +34,49 @@ public class TeacherController {
         UPDATE,
         DELETE;
     }
+    @FXML TableColumn<User, Integer> userID;
+    @FXML TableColumn<User, String> userUsername;
+    @FXML TableColumn<User, String> userPassword;
+    @FXML TableColumn<User, Integer> userUserType;
+    @FXML TableColumn<Tag, Integer> tagID;
+    @FXML TableColumn<Tag, String> tagText;
+    @FXML TableColumn<Tag, String> tagColor;
+    @FXML TableColumn<Tag, String> tagStrokeColor;
+    @FXML TableColumn<Assignment, Integer> assignmentID;
+    @FXML TableColumn<Assignment, String> assignmentTitle; 
+    @FXML TableColumn<Assignment, String> assignmentCreatorFN;
+    @FXML TableColumn<Assignment, String> assignmentCreatorLN;
+    @FXML TableColumn<Assignment, String> assignmentDescription;
+
+    @FXML private AnchorPane popOutWindow;
+
+    @FXML private TextField tfOne, tfTwo, tfThree, tfFour;
+
+    @FXML private Label tfOneUsername, tfTwoPassword, tfThreeUserType, tfOneTagText, tfTwoTagColor, tfThreeTagStrokeColor;
+    @FXML private Label tfOneTitle, tfTwoCreatorFN, tfThreeCreatorLN, tfFourAssignmentDescription;
+
+    @FXML private SVGPath confirmLogo, declineLogo;
+
+    @FXML 
+    private TableView<User> userTable;
 
     @FXML
-    private AnchorPane popOutWindow;
+    private TableView<Tag> tagTable;
 
     @FXML
-    private TextField tfOne, tfTwo, tfThree, tfFour;
+    private TableView<Assignment> assignmentTable;
 
-    @FXML
-    private Label tfOneUsername, tfTwoPassword, tfThreeUserType;
-
-    @FXML
-    private SVGPath confirmLogo, declineLogo;
-
-    @FXML
-    private Rectangle confirmBox, declineBox;
+    @FXML private Rectangle confirmBox, declineBox;
 
     public void initialize() {
         toggleWindow();
     }
     
+    //same structure for the other CREATE functions
     public void createUser() {
         System.out.println("Create User");
         toggleWindow(); //set the window visible
-        hideAllText(); //hide all textprompts
+        hideAll(); //hide all textprompts
         
         DAL dal = new DAL("resono"); //instantiate new connection
         inputFieldsNeeded = dal.getColumnAmount("Logins"); //fetch amount of columns in the table.
@@ -58,7 +88,130 @@ public class TeacherController {
         //listen for accept, check that no boxes are empty then execute the statement
         listenForAccept(confirmLogo, confirmBox, inputFieldsNeeded, CRUD.INSERT, "Logins", "username", "password", "user_type");   
     }
-    
+
+    public void createTag() {
+        System.out.println("Create Tag");
+        toggleWindow(); 
+        hideAll();
+        
+        DAL dal = new DAL("resono");
+        inputFieldsNeeded = dal.getColumnAmount("Tags");
+        inputFieldsNeeded--;
+
+        showInputFields(inputFieldsNeeded);
+        showCreateTagText();
+
+        listenForAccept(confirmLogo, confirmBox, inputFieldsNeeded, CRUD.INSERT, "Tags", "text", "color", "stroke_color");
+    }
+
+    public void createAssignment() {
+        System.out.println("Create Assignment");
+        toggleWindow(); 
+        hideAll();
+        
+        DAL dal = new DAL("resono");
+        inputFieldsNeeded = dal.getColumnAmount("Assignments");
+        inputFieldsNeeded--;
+
+        showInputFields(inputFieldsNeeded);
+        showCreateAssignmentText();
+
+        listenForAccept(confirmLogo, confirmBox, inputFieldsNeeded, CRUD.INSERT, "Assignments", "title", "creator_fn", "creator_ln", "description");
+    }
+
+    //same structure for the other READ functions
+    public void readUser() {
+        System.out.println("Read User");
+        toggleWindow();
+        hideAll(); //hide all
+        hideConfirmDecline();
+        userTable.setVisible(true); //but the tableview
+        DAL dal = new DAL("resono"); //connect to DB
+        try {
+            ResultSet resultSet = dal.read("SELECT * FROM Logins"); //query
+            ObservableList<User> userSearchModel = FXCollections.observableArrayList();
+            while (resultSet.next()) {
+                Integer queryUserID = resultSet.getInt("id");
+                Integer queryUserUserType = resultSet.getInt("user_type");
+                String queryUserUsername = resultSet.getString("username");
+                String queryUserPassword = resultSet.getString("password");
+
+                userSearchModel.add(new User(queryUserID, queryUserUserType, queryUserUsername, queryUserPassword));
+            }
+            userID.setCellValueFactory(new PropertyValueFactory<>("userID"));
+            userUsername.setCellValueFactory(new PropertyValueFactory<>("userUsername"));
+            userPassword.setCellValueFactory(new PropertyValueFactory<>("userPassword"));
+            userUserType.setCellValueFactory(new PropertyValueFactory<>("userUserType"));
+            
+            userTable.setItems(userSearchModel);
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void readTag() {
+        System.out.println("Read Tag");
+        toggleWindow();
+        hideAll();
+        hideConfirmDecline();
+        tagTable.setVisible(true);
+        DAL dal = new DAL("resono");
+        try {
+            ResultSet resultSet = dal.read("SELECT * FROM Tags");
+            ObservableList<Tag> userSearchModel = FXCollections.observableArrayList();
+            while(resultSet.next()) {
+                Integer queryTagID = resultSet.getInt("id");
+                String queryTagText = resultSet.getString("text");
+                String queryTagColor = resultSet.getString("color");
+                String queryStrokeColor = resultSet.getString("stroke_color");
+
+                userSearchModel.add(new Tag(queryTagID, queryTagText, queryTagColor, queryStrokeColor));
+            } 
+            tagID.setCellValueFactory(new PropertyValueFactory<>("tagID"));
+            tagText.setCellValueFactory(new PropertyValueFactory<>("tagText"));
+            tagColor.setCellValueFactory(new PropertyValueFactory<>("tagColor"));
+            tagStrokeColor.setCellValueFactory(new PropertyValueFactory<>("tagStrokeColor"));
+
+            tagTable.setItems(userSearchModel);
+        }
+        catch(SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void readAssignment() {
+        System.out.println("Read Assignment");
+        toggleWindow();
+        hideAll();
+        hideConfirmDecline();
+        assignmentTable.setVisible(true);
+        DAL dal = new DAL("resono");
+        try {
+            ResultSet resultSet = dal.read("SELECT * FROM Assignments");
+            ObservableList<Assignment> userSearchModel = FXCollections.observableArrayList();
+            while(resultSet.next()) {
+                Integer queryAssignmentID = resultSet.getInt("id");
+                String queryAssignmentTitle = resultSet.getString("title");
+                String queryAssignmentCreatorFN = resultSet.getString("creator_fn");
+                String queryAssignmentCreatorLN = resultSet.getString("creator_ln");
+                String queryAssignmentDescription = resultSet.getString("description");
+
+                userSearchModel.add(new Assignment(queryAssignmentID, queryAssignmentTitle, queryAssignmentCreatorFN, queryAssignmentCreatorLN, queryAssignmentDescription));
+            } 
+            assignmentID.setCellValueFactory(new PropertyValueFactory<>("assignmentID"));
+            assignmentTitle.setCellValueFactory(new PropertyValueFactory<>("assignmentTitle"));
+            assignmentCreatorFN.setCellValueFactory(new PropertyValueFactory<>("assignmentCreatorFN"));
+            assignmentCreatorLN.setCellValueFactory(new PropertyValueFactory<>("assignmentCreatorLN"));
+            assignmentDescription.setCellValueFactory(new PropertyValueFactory<>("assignmentDescription"));
+
+            assignmentTable.setItems(userSearchModel);
+        }
+        catch(SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     //declines & closes the popup window for teacher CRUD.
     public void decline() {
         System.out.println("Declined");
@@ -137,33 +290,45 @@ public class TeacherController {
         });
     }
 
-    //Service method
+    private void showCreateAssignmentText() {
+        tfOneTitle.setVisible(true);
+        tfTwoCreatorFN.setVisible(true);
+        tfThreeCreatorLN.setVisible(true);
+        tfFourAssignmentDescription.setVisible(true);
+    }
+
     private void showCreateUserText() {
-        this.tfOneUsername.setVisible(true);
-        this.tfTwoPassword.setVisible(true);
-        this.tfThreeUserType.setVisible(true);
+        tfOneUsername.setVisible(true);
+        tfTwoPassword.setVisible(true);
+        tfThreeUserType.setVisible(true);
+    }
+
+    private void showCreateTagText() {
+        tfOneTagText.setVisible(true);
+        tfTwoTagColor.setVisible(true);
+        tfThreeTagStrokeColor.setVisible(true);
     }
 
     //Service method: displays N input fields based on the amount of column input needed.
     private void showInputFields(int amount) {
         switch(amount) {
             case 1:
-                this.tfOne.setVisible(true);
+                tfOne.setVisible(true);
                 break;
             case 2:
-                this.tfOne.setVisible(true);
-                this.tfTwo.setVisible(true);
+                tfOne.setVisible(true);
+                tfTwo.setVisible(true);
                 break;
             case 3:
-                this.tfOne.setVisible(true);
-                this.tfTwo.setVisible(true);
-                this.tfThree.setVisible(true);
+                tfOne.setVisible(true);
+                tfTwo.setVisible(true);
+                tfThree.setVisible(true);
                 break;
             case 4:
-                this.tfOne.setVisible(true);
-                this.tfTwo.setVisible(true);
-                this.tfThree.setVisible(true);
-                this.tfFour.setVisible(true);
+                tfOne.setVisible(true);
+                tfTwo.setVisible(true);
+                tfThree.setVisible(true);
+                tfFour.setVisible(true);
                 break;
         }
     }
@@ -172,39 +337,56 @@ public class TeacherController {
     private boolean isEmpty(int fields) {
         switch(fields) {
             case 1:
-                return this.tfOne.getText().isEmpty();
+                return tfOne.getText().isEmpty();
             case 2:
                 return (
-                this.tfOne.getText().isEmpty() &&
-                this.tfTwo.getText().isEmpty()
+                tfOne.getText().isEmpty() &&
+                tfTwo.getText().isEmpty()
                 );
             case 3:
             return (
-                this.tfOne.getText().isEmpty() &&
-                this.tfTwo.getText().isEmpty() &&
-                this.tfThree.getText().isEmpty()
+                tfOne.getText().isEmpty() &&
+                tfTwo.getText().isEmpty() &&
+                tfThree.getText().isEmpty()
                 );
             case 4: 
             return (
-                this.tfOne.getText().isEmpty() &&
-                this.tfTwo.getText().isEmpty() &&
-                this.tfThree.getText().isEmpty() &&
-                this.tfFour.getText().isEmpty()
+                tfOne.getText().isEmpty() &&
+                tfTwo.getText().isEmpty() &&
+                tfThree.getText().isEmpty() &&
+                tfFour.getText().isEmpty()
                 );
             default:
             return false;
         }
     }
 
+    private void hideConfirmDecline() {
+        confirmBox.setVisible(false);
+        confirmLogo.setVisible(false);
+        declineBox.setVisible(false);
+        declineLogo.setVisible(false);
+    }
+
     //Service method: Hides all TextFields / PromptText
-    private void hideAllText() {
-        this.tfOne.setVisible(false);
-        this.tfTwo.setVisible(false);
-        this.tfThree.setVisible(false);
-        this.tfFour.setVisible(false);
-        this.tfOne.setVisible(false);
-        this.tfTwo.setVisible(false);
-        this.tfThree.setVisible(false);
+    private void hideAll() {
+        tfOneTagText.setVisible(false);
+        tfOneUsername.setVisible(false);
+        tfTwoTagColor.setVisible(false);
+        tfTwoPassword.setVisible(false);
+        tfThreeTagStrokeColor.setVisible(false);
+        tfThreeUserType.setVisible(false);
+        tfOne.setVisible(false);
+        tfTwo.setVisible(false);
+        tfThree.setVisible(false);
+        tfFour.setVisible(false);
+        tfOneTitle.setVisible(false);
+        tfTwoCreatorFN.setVisible(false);
+        tfThreeCreatorLN.setVisible(false);
+        tfFourAssignmentDescription.setVisible(false);
+        tagTable.setVisible(false);
+        userTable.setVisible(false);
+        assignmentTable.setVisible(false);
     }
 
     //Service methods overloaded methods decide the CRUD function. Overloaded to accomodate 1-4 columns.

@@ -15,67 +15,27 @@ CREATE TABLE Logins (
 	id INT IDENTITY(1000, 1),
 	username VARCHAR(256),
 	password VARCHAR(512),
-	user_type BIT,
+	usertype BIT,
     PRIMARY KEY (id)
 );
 
--- Persons
-CREATE TABLE Persons (
-	cpr INT,
-	fornavn VARCHAR(256),
-	efternavn VARCHAR(256),
-	login_id INT FOREIGN KEY REFERENCES Logins(id),
-    PRIMARY KEY (cpr)
-);
-
--- Telephones
-CREATE TABLE Telephones (
-	cpr INT FOREIGN KEY REFERENCES Persons(cpr),
-	number INT,
-    PRIMARY KEY (number)-- CONSIDER: Does this really need to be a primaary key?
-);
-
--- Emails
--- TODO: C-PK in diagram?
-CREATE TABLE Emails (
-	cpr INT FOREIGN KEY REFERENCES Persons(cpr),
-	email VARCHAR(256) 
-    PRIMARY KEY(email) -- CONSIDER: Does this really need to be a primaary key?
-);
-
--- Addresses
-CREATE TABLE Addresses (
-	cpr INT FOREIGN KEY REFERENCES Persons(cpr),
-	street_address VARCHAR(512),
-	country VARCHAR(256),
-	city VARCHAR(256)
-	-- CONSIDER: Postcode? Maybe even instead of city?
-);
-
--- CONSIDER: Maybe Assignment and AssignmentContent can be merged?
 -- Assignments
 CREATE TABLE Assignments (
-	id INT IDENTITY(1, 1), -- AUTO INCREMENT,
-	title VARCHAR(512),
-	description TEXT,
-	is_active BIT -- CONSIDER: BIT for boolean or perhaps rename to "status" and use ENUM
+	id INT IDENTITY(1, 1),
+	title VARCHAR(256),
+	creator_fn VARCHAR(128),
+	creator_ln VARCHAR(128),
+	description VARCHAR(4096),
     PRIMARY KEY(id)
 );
 
--- AssignedAssignments
-CREATE TABLE AssignedAssignments (
-	assignment_id INT FOREIGN KEY REFERENCES Assignments(id),
-	login_id INT FOREIGN KEY REFERENCES Persons(cpr),
-	status VARCHAR(256)
-);
-
--- AssignmentContent
-CREATE TABLE AssignmentContent (
-	id INT IDENTITY(1, 1), -- AUTO INCREMENT,
-	assignment_id INT FOREIGN KEY REFERENCES Assignments(id),
-	content TEXT,
-	type TEXT
-    PRIMARY KEY(id)
+-- Tags
+CREATE TABLE Tags (
+	id INT IDENTITY(1, 1),
+	text VARCHAR(12),
+	color VARCHAR(12),
+	stroke_color VARCHAR(12),
+	PRIMARY KEY(id)
 );
 
 --==================================
@@ -92,4 +52,29 @@ VALUES
 ('Benjamin', '123', 0),
 ('Aksel', '1234', 0);
 
+INSERT INTO Tags
+(text, color, stroke_color)
+VALUES
+('Tag1', '#F7F7F7', '#000000'),
+('DMU', '#8AA8AE', '#F7F7F7'),
+('Inspiration', '#37474', '#F7F7F7'),
+('DoIt', '#000000', '#F7F7F7'),
+('Test', '#313131', '#F7F7F7');
 
+INSERT INTO Tags
+(text, color, stroke_color)
+VALUES
+('Tag1', '#F7F7F7', '#000000'),
+('DMU', '#8AA8AE', '#F7F7F7'),
+('Inspiration', '#37474', '#F7F7F7'),
+('DoIt', '#000000', '#F7F7F7'),
+('Test', '#313131', '#F7F7F7');
+
+INSERT INTO Assignments
+(title, creator_fn, creator_ln, description)
+VALUES
+('Opgave 1', 'C', 'A', 'Gå en tur'),
+('Dag 1', 'FK', 'J', 'Spil Minecraft en time'),
+('Kursus 1', 'JP', 'N', 'Sig nihao til XBI'),
+('Øvelse 1', 'XB', 'I', 'Kald Jan for Peter Plys'),
+('Video 1', 'A', 'N', 'Spis en omgang pinto');

@@ -23,13 +23,13 @@
                 <VBox spacing="75" alignment="TOP_CENTER">
                     <!--Opret-->
                     <StackPane>
-                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
-                        <Label text="OPRET" styleClass="buttonNotDone"/>
+                        <Rectangle onMouseClicked="#createAssignment" width="300" height="60" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                        <Label onMouseClicked="#createAssignment" text="OPRET" styleClass="buttonDone"/>
                     </StackPane>
                     <!--Vis alle-->
                     <StackPane>
-                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
-                        <Label text="VIS" styleClass="buttonNotDone"/>
+                        <Rectangle onMouseClicked="#readAssignment" width="300" height="60" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                        <Label onMouseClicked="#readAssignment" text="VIS" styleClass="buttonDone"/>
                     </StackPane>
                     <!--Rediger-->
                     <StackPane>
@@ -61,13 +61,13 @@
                 <VBox spacing="75" alignment="TOP_CENTER">
                     <!--Opret-->
                     <StackPane>
-                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
-                        <Label text="OPRET" styleClass="buttonNotDone"/>
+                        <Rectangle onMouseClicked="#createTag" width="300" height="60" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                        <Label onMouseClicked="#createTag" text="OPRET" styleClass="buttonDone"/>
                     </StackPane>
                     <!--Vis alle-->
                     <StackPane>
-                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
-                        <Label text="VIS" styleClass="buttonNotDone"/>
+                        <Rectangle onMouseClicked="#readTag" width="300" height="60" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                        <Label onMouseClicked="#readTag" text="VIS" styleClass="buttonDone"/>
                     </StackPane>
                     <!--Rediger-->
                     <StackPane>
@@ -104,8 +104,8 @@
                     </StackPane>
                     <!--Vis alle-->
                     <StackPane>
-                        <Rectangle width="300" height="60" arcWidth="25" arcHeight="25" fill="#616161" stroke="#000000" strokeWidth="1"/>
-                        <Label text="VIS" styleClass="buttonNotDone"/>
+                        <Rectangle onMouseClicked="#readUser" width="300" height="60" arcWidth="25" arcHeight="25" fill="#8AA8AE" stroke="#000000" strokeWidth="1"/>
+                        <Label onMouseClicked="#readUser" text="VIS" styleClass="buttonDone"/>
                     </StackPane>
                     <!--Rediger-->
                     <StackPane>
@@ -143,30 +143,69 @@
                 </StackPane>
             </HBox> 
         </VBox>
-        <HBox spacing="550" alignment="CENTER" AnchorPane.topAnchor="75" AnchorPane.leftAnchor="25" AnchorPane.rightAnchor="25">   
+        <HBox spacing="450" alignment="CENTER" AnchorPane.topAnchor="75" AnchorPane.leftAnchor="25" AnchorPane.rightAnchor="25">   
             <!--Field1-->
             <VBox spacing="10" alignment="CENTER_LEFT">
-                <Label fx:id="tfOneUsername" text="Indtast Brugernavn" styleClass="boxText"/>
-                <TextField fx:id="tfOne" alignment="CENTER" styleClass="textBox" minHeight="100" minWidth="500"/>
+                <StackPane alignment="CENTER">
+                    <Label fx:id="tfOneTitle" text="Indtast titel" styleClass="boxText" minWidth="600"/>
+                    <Label fx:id="tfOneTagText" text="Tekst" styleClass="boxText" minWidth="600"/>
+                    <Label fx:id="tfOneUsername" text="Indtast Brugernavn" styleClass="boxText" minWidth="600"/>
+                </StackPane>
+                <TextField fx:id="tfOne" alignment="CENTER" styleClass="textBox" minHeight="100" minWidth="600"/>
             </VBox>
             <!--Field2-->
             <VBox spacing="10" alignment="CENTER_LEFT">
-                <Label fx:id="tfTwoPassword" text="Indtast Kodeord" styleClass="boxText"/>
-                <TextField fx:id="tfTwo" alignment="CENTER" styleClass="textBox" minHeight="100" minWidth="500"/>
+                <StackPane alignment="CENTER">
+                    <Label fx:id="tfTwoCreatorFN" text="Instast skaberens fornavn" styleClass="boxText" minWidth="600"/>
+                    <Label fx:id="tfTwoTagColor" text="Farve" styleClass="boxText" minWidth="600"/>
+                    <Label fx:id="tfTwoPassword" text="Indtast Kodeord" styleClass="boxText" minWidth="600"/>
+                </StackPane>
+                <TextField fx:id="tfTwo" alignment="CENTER" styleClass="textBox" minHeight="100" minWidth="600"/>
             </VBox>
         </HBox> 
-        <HBox spacing="550" alignment="CENTER" AnchorPane.topAnchor="400" AnchorPane.leftAnchor="25" AnchorPane.rightAnchor="25">
+        <HBox spacing="450" alignment="CENTER" AnchorPane.topAnchor="400" AnchorPane.leftAnchor="25" AnchorPane.rightAnchor="25">
             <!--Field3-->
             <VBox spacing="10" alignment="CENTER_LEFT">
-                <Label fx:id="tfThreeUserType" text="0 = student, 1 = lærer" styleClass="boxText"/>
-                <TextField fx:id="tfThree" alignment="CENTER" styleClass="textBox" minHeight="100" minWidth="500"/>
+                <StackPane alignment="CENTER">
+                    <Label fx:id="tfThreeCreatorLN" text="Indtast skaberens efternavn" styleClass="boxText" minWidth="600"/>
+                    <Label fx:id="tfThreeTagStrokeColor" text="Stroke-farve" styleClass="boxText" minWidth="600"/>
+                    <Label fx:id="tfThreeUserType" text="0 = student, 1 = lærer" styleClass="boxText" minWidth="600"/>
+                </StackPane>
+                <TextField fx:id="tfThree" alignment="CENTER" styleClass="textBox" minHeight="100" minWidth="600"/>
             </VBox>
             <!--Field4-->
             <VBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="" styleClass="boxText"/>
-                <TextField fx:id="tfFour" alignment="CENTER" styleClass="textBox" minHeight="100" minWidth="500"/>
+                <StackPane alignment="CENTER">
+                    <Label fx:id="tfFourAssignmentDescription" text="Skriv opgave beskrivelse" styleClass="boxText" minWidth="600"/>
+                </StackPane>
+                <TextField fx:id="tfFour" alignment="CENTER" styleClass="textBox" minHeight="100" minWidth="600"/>
             </VBox>
-        </HBox>
+        </HBox>  
+        <TableView fx:id="userTable" AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50">
+            <columns>
+                <TableColumn fx:id="userID" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="userUsername" prefWidth="75.0" text="username" />
+                <TableColumn fx:id="userPassword" prefWidth="75.0" text="password" />
+                <TableColumn fx:id="userUserType" prefWidth="75.0" text="user_type" />
+            </columns>
+        </TableView>
+            <TableView fx:id="assignmentTable" AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50">
+                <columns>
+                <TableColumn fx:id="assignmentID" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="assignmentTitle" prefWidth="75.0" text="title" />
+                <TableColumn fx:id="assignmentCreatorFN" prefWidth="75.0" text="creator_fn" />
+                <TableColumn fx:id="assignmentCreatorLN" prefWidth="75.0" text="creator_ln" />
+                <TableColumn fx:id="assignmentDescription" prefWidth="75.0" text="description" />
+            </columns>
+        </TableView>
+        <TableView fx:id="tagTable" AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50">
+            <columns>
+                <TableColumn fx:id="tagID" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="tagText" prefWidth="75.0" text="text" />
+                <TableColumn fx:id="tagColor" prefWidth="75.0" text="color" />                    
+                <TableColumn fx:id="tagStrokeColor" prefWidth="75.0" text="stroke_color" />
+            </columns>
+        </TableView>
         <!--Close Window-->
         <StackPane AnchorPane.rightAnchor="-8" AnchorPane.topAnchor="-8">
             <Circle onMouseClicked="#toggleWindow" radius="10" fill="#d70a0a" stroke="#000000" strokeType="OUTSIDE" strokeWidth="2"/>

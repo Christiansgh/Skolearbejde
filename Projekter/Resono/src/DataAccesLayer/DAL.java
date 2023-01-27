@@ -62,6 +62,35 @@ public class DAL {
     }
   }
 
+  //Exectute a query and return the result as a resultset.
+  public ResultSet read(String query) {
+    try {
+      statement = connection.createStatement(); 
+      resultSet = statement.executeQuery(query);
+      return resultSet;
+    }
+    catch(SQLException e) {
+      System.out.println(e);
+      return resultSet;
+    }
+  }
+
+  //queries the the table for amount of columns. returns as int. Used to determine the amount of input boxes to show
+  public int getColumnAmount(String tableName) {
+    try {
+      System.out.printf("Getting number of columns in table %s \n", tableName);
+      statement = connection.createStatement(); //instantiate the statement
+      resultSet = statement.executeQuery(String.format("SELECT * FROM %s", tableName)); //execute the query
+      resultSetMetaData = resultSet.getMetaData(); //get the meta data
+      System.out.printf("Found %d columns \n", resultSetMetaData.getColumnCount());
+      return resultSetMetaData.getColumnCount(); //return the column count.
+    }
+    catch (SQLException e){
+      System.out.println(e);
+      return -1; //on exception return -1
+    }
+  }
+
   //INSERT INTO prepared statement. Methods below are overloaded to accomidate for different amount of columns pr. table.
   //   - NB. factoring in "IDENTITY", the maximum amount of columns our table has is 4. If this number gets increased, we need to further overload than 4.
   //NOT DRY Code. Space for implementing servicemethods to reduce redundancy, but not enough time.
@@ -119,22 +148,6 @@ public class DAL {
     } 
     catch(SQLException e) {
       System.out.println(e);
-    }
-  }
-
-  //queries the the table for amount of columns. returns as int. Used to determine the amount of input boxes to show
-  public int getColumnAmount(String tableName) {
-    try {
-      System.out.printf("Getting number of columns in table %s \n", tableName);
-      statement = connection.createStatement(); //instantiate the statement
-      resultSet = statement.executeQuery(String.format("SELECT * FROM %s", tableName)); //execute the query
-      resultSetMetaData = resultSet.getMetaData(); //get the meta data
-      System.out.printf("Found %d columns \n", resultSetMetaData.getColumnCount());
-      return resultSetMetaData.getColumnCount(); //return the column count.
-    }
-    catch (SQLException e){
-      System.out.println(e);
-      return -1; //on exception return -1
     }
   }
 
