@@ -161,6 +161,62 @@ public class DAL {
     }
   }
 
+  //updates the values of a row.
+  //Overloaded 4 times, to accomodate for different amounts of columns that need change.
+  public void updateSet(String tableName, String column1, String value1, int id) {
+    try {
+      preparedStatement = connection.prepareStatement(String.format("UPDATE %s SET %s = ? WHERE id = %d", tableName, column1, id));
+      preparedStatement.setString(1, value1); 
+      int rowsAffected = preparedStatement.executeUpdate();
+      printRowsAffected(rowsAffected); //prints rows affected. 1 is a successful INSERT.
+    } 
+    catch(SQLException e) {
+      System.out.println(e);
+    }
+  }
+
+  public void updateSet(String tableName, String column1, String column2, String value1, String value2, int id) {
+    try {
+      preparedStatement = connection.prepareStatement(String.format("UPDATE %s SET %s = ?, %s = ? WHERE id = %d", tableName, column1, column2, id));
+      preparedStatement.setString(1, value1); 
+      preparedStatement.setString(2, value2);
+      int rowsAffected = preparedStatement.executeUpdate();
+      printRowsAffected(rowsAffected); //prints rows affected. 1 is a successful INSERT.
+    } 
+    catch(SQLException e) {
+      System.out.println(e);
+    }
+  }
+
+  public void updateSet(String tableName, String column1, String column2, String column3, String value1, String value2, String value3, int id) {
+    try {
+      preparedStatement = connection.prepareStatement(String.format("UPDATE %s SET %s = ?, %s = ?, %s = ? WHERE id = %d", tableName, column1, column2, column3, id));
+      preparedStatement.setString(1, value1); 
+      preparedStatement.setString(2, value2);
+      preparedStatement.setString(3, value3);
+      int rowsAffected = preparedStatement.executeUpdate();
+      printRowsAffected(rowsAffected); //prints rows affected. 1 is a successful INSERT.
+    } 
+    catch(SQLException e) {
+      System.out.println(e);
+    }
+  }
+
+  public void updateSet(String tableName, String column1, String column2, String column3, String column4, String value1, String value2, String value3, String value4, int id) {
+    try {
+      preparedStatement = connection.prepareStatement(String.format("UPDATE %s SET %s = ?, %s = ?, %s = ?, %s = ? WHERE id = %d", tableName, column1, column2, column3, column4, id));
+      preparedStatement.setString(1, value1); 
+      preparedStatement.setString(2, value2);
+      preparedStatement.setString(3, value3);
+      preparedStatement.setString(4, value4);
+      int rowsAffected = preparedStatement.executeUpdate();
+      printRowsAffected(rowsAffected); //prints rows affected. 1 is a successful INSERT.
+    } 
+    catch(SQLException e) {
+      System.out.println(e);
+    }
+  }
+
   //Service method printing the amount of rows affected by the query.
   private void printRowsAffected(int rowsAffected) {
     if(rowsAffected == 1) {

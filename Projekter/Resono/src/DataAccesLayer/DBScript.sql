@@ -15,7 +15,7 @@ CREATE TABLE Logins (
 	id INT IDENTITY(1000, 1),
 	username VARCHAR(256),
 	password VARCHAR(512),
-	usertype BIT,
+	user_type BIT,
     PRIMARY KEY (id)
 );
 

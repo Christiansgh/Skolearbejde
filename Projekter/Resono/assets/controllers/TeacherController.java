@@ -49,10 +49,10 @@ public class TeacherController {
 
     @FXML private AnchorPane popOutWindow;
 
-    @FXML private TextField tfOne, tfTwo, tfThree, tfFour;
+    @FXML private TextField tfOne, tfTwo, tfThree, tfFour, tfFive;
 
     @FXML private Label tfOneUsername, tfTwoPassword, tfThreeUserType, tfOneTagText, tfTwoTagColor, tfThreeTagStrokeColor;
-    @FXML private Label tfOneTitle, tfTwoCreatorFN, tfThreeCreatorLN, tfFourAssignmentDescription, tfOneDeleteUser;
+    @FXML private Label tfOneTitle, tfTwoCreatorFN, tfThreeCreatorLN, tfFourAssignmentDescription, tfOneDeleteUser, tfFiveDescription;
 
     @FXML private SVGPath confirmLogo, declineLogo;
 
@@ -219,7 +219,21 @@ public class TeacherController {
         hideAll(); //hide all textprompts
     }
 
-    //updates a user. 
+    public void updateAssignment() {
+        System.out.println("Update User");
+        toggleWindow(); //set the window visible
+        hideAll(); //hide all textprompts
+
+        DAL dal = new DAL("resono");
+        inputFieldsNeeded = dal.getColumnAmount("assignments");
+        showInputFields(inputFieldsNeeded); // -1 for "IDENTITY", + for the ID to update, so no change.
+        showUpdateAssignmentText();
+
+        listenForAccept(confirmLogo, confirmBox, inputFieldsNeeded, CRUD.UPDATE, "Assignments");
+
+    }
+
+    //deletes a user. 
     //the other DELETE functions follow a similar structure.
     public void deleteUser() {
         System.out.println("Delete User");
@@ -348,6 +362,11 @@ public class TeacherController {
         });
     }
 
+    private void showUpdateAssignmentText() {
+        showCreateAssignmentText();
+        tfFiveDescription.setVisible(true);
+    }
+
     private void showCreateAssignmentText() {
         tfOneTitle.setVisible(true);
         tfTwoCreatorFN.setVisible(true);
@@ -387,6 +406,13 @@ public class TeacherController {
                 tfTwo.setVisible(true);
                 tfThree.setVisible(true);
                 tfFour.setVisible(true);
+                break;
+            case 5:
+                tfOne.setVisible(true);
+                tfTwo.setVisible(true);
+                tfThree.setVisible(true);
+                tfFour.setVisible(true);
+                tfFive.setVisible(true);
                 break;
         }
     }
@@ -446,6 +472,8 @@ public class TeacherController {
         userTable.setVisible(false);
         assignmentTable.setVisible(false);
         tfOneDeleteUser.setVisible(false);
+        tfFive.setVisible(false);
+        tfFiveDescription.setVisible(false);
     }
 
     //DELETE
@@ -458,7 +486,6 @@ public class TeacherController {
                 case INSERT:
                 break;
                 case UPDATE:
-                //UPDATE QUERY
                 break;
                 case DELETE:
                 dal.deleteFrom(tableName, Integer.valueOf(tfOne.getText()));
@@ -482,7 +509,7 @@ public class TeacherController {
                 dal.insertInto(tableName, column1, value1);
                 break;
                 case UPDATE:
-                //UPDATE QUERY
+                dal.updateSet(tableName, column1, value1, Integer.valueOf(tfFive.getText()));
                 break;
                 case DELETE:
                 //DELETE QUERY
@@ -506,7 +533,7 @@ public class TeacherController {
                 dal.insertInto(tableName, column1, column2, value1, value2);
                 break;
                 case UPDATE:
-                //UPDATE QUERY
+                dal.updateSet(tableName, column1, column2, value1, value2, Integer.valueOf(tfFive.getText()));
                 break;
                 case DELETE:
                 //DELETE QUERY
@@ -530,7 +557,7 @@ public class TeacherController {
                 dal.insertInto(tableName, column1, column2, column3, value1, value2, value3);
                 break;
                 case UPDATE:
-                //UPDATE QUERY
+                dal.updateSet(tableName, column1, column2, column3, value1, value2, value3, Integer.valueOf(tfFive.getText()));
                 break;
                 case DELETE:
                 //DELETE QUERY
@@ -554,7 +581,7 @@ public class TeacherController {
                 dal.insertInto(tableName, column1, column2, column3, column4, value1, value2, value3, value4);
                 break;
                 case UPDATE:
-                //UPDATE QUERY
+                dal.updateSet(tableName, column1, column2, column3, column4, value1, value2, value3, value4, Integer.valueOf(tfFive.getText()));
                 break;
                 case DELETE:
                 //DELETE QUERY
