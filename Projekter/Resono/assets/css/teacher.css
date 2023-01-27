@@ -34,6 +34,11 @@
     -fx-opacity: 0.95;
 }
 
+.boxText {
+    -fx-text-fill: #F7F7F7;
+    -fx-font-size: 48;
+}
+
 
     
     
