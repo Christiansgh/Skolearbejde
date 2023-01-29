@@ -76,6 +76,7 @@ public class TeacherController {
         System.out.println("Create User");
         toggleWindow(); //set the window visible
         hideAll(); //hide all textprompts
+        showConfirmDecline(); //show confirm / decline
         
         DAL dal = new DAL("resono"); //instantiate new connection
         inputFieldsNeeded = dal.getColumnAmount("Logins"); //fetch amount of columns in the table.
@@ -92,6 +93,7 @@ public class TeacherController {
         System.out.println("Create Tag");
         toggleWindow(); 
         hideAll();
+        showConfirmDecline(); //show confirm / decline
         
         DAL dal = new DAL("resono");
         inputFieldsNeeded = dal.getColumnAmount("Tags");
@@ -107,6 +109,7 @@ public class TeacherController {
         System.out.println("Create Assignment");
         toggleWindow(); 
         hideAll();
+        showConfirmDecline(); //show confirm / decline
         
         DAL dal = new DAL("resono");
         inputFieldsNeeded = dal.getColumnAmount("Assignments");
@@ -217,12 +220,14 @@ public class TeacherController {
         System.out.println("Update User");
         toggleWindow(); //set the window visible
         hideAll(); //hide all textprompts
+        showConfirmDecline(); //show confirm / decline
     }
 
     public void updateAssignment() {
         System.out.println("Update User");
         toggleWindow(); //set the window visible
         hideAll(); //hide all textprompts
+        showConfirmDecline(); //show confirm / decline
 
         DAL dal = new DAL("resono");
         inputFieldsNeeded = dal.getColumnAmount("assignments");
@@ -239,6 +244,7 @@ public class TeacherController {
         System.out.println("Delete User");
         toggleWindow(); //set the window visible
         hideAll(); //hide all textprompts
+        showConfirmDecline(); //show confirm / decline
         tfOne.setVisible(true); //set delete input field visible
         tfOneDeleteUser.setVisible(true); //display GUI prompt
 
@@ -250,6 +256,7 @@ public class TeacherController {
         System.out.println("Delete Tag");
         toggleWindow(); 
         hideAll(); 
+        showConfirmDecline(); //show confirm / decline
         tfOne.setVisible(true); 
         tfOneDeleteUser.setVisible(true); 
 
@@ -261,6 +268,7 @@ public class TeacherController {
         System.out.println("Delete Assignment");
         toggleWindow();
         hideAll(); 
+        showConfirmDecline(); //show confirm / decline
         tfOne.setVisible(true); 
         tfOneDeleteUser.setVisible(true); 
 
@@ -450,6 +458,13 @@ public class TeacherController {
         confirmLogo.setVisible(false);
         declineBox.setVisible(false);
         declineLogo.setVisible(false);
+    }
+
+    private void showConfirmDecline() {
+        confirmBox.setVisible(true);
+        confirmLogo.setVisible(true);
+        declineBox.setVisible(true);
+        declineLogo.setVisible(true);
     }
 
     //Service method: Hides all TextFields / PromptText
