@@ -2,10 +2,12 @@ package Opg2;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        Locale locale = new Locale("en", "US");
         int[] occurance = new int[256]; // 256 ASCII characters
         int totalChars = 0;
 
@@ -22,14 +24,11 @@ public class Main {
         }
         scanner.close(); //all lines have been counted.
 
-        System.out.println(totalChars);
         for (int i = 0; i < occurance.length; i++) { 
             if (occurance[i] > 0) { //if not found, dont print.
-                System.out.println("'" + (char) i + "'" + " occurred " + occurance[i] + " times"); //recast the index into the char.
-                System.out.printf("[%c] occured %d times\n", (char) i, occurance[i]);
+                System.out.printf("[%c] occured [%,6d] times out of %,d times.\n", (char) i, occurance[i], totalChars);
             }
         }
-
 
         /*
          * O(n) - worst case:
