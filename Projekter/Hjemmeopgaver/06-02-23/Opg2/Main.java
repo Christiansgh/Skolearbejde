@@ -26,7 +26,7 @@ public class Main {
 
         for (int i = 0; i < occurance.length; i++) { 
             if (occurance[i] > 0) { //if not found, dont print.
-                System.out.printf("[%c] occured [%,6d] times out of %,d times.\n", (char) i, occurance[i], totalChars);
+                System.out.printf("[%c] occured [%,6d] times out of %,d times | %.2f%%.\n", (char) i, occurance[i], totalChars, (double) occurance[i] / totalChars * 100);
             }
         }
 
