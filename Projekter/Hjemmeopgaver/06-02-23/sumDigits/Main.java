@@ -24,6 +24,7 @@ public class Main {
         //recursion to shrink the problem.
         //% 10 returns the "rest / leftovers from / 10."
         //then call itself with the leftovers removed.
+        //the leftovers are accumulated in the returned int.
         return (num % 10 + sumOfDigits(num / 10));
     }
 }
