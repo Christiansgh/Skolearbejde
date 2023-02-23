@@ -34,6 +34,6 @@ public class Main {
         int indexOfBog = Arrays.binarySearch(words, "bog");
 
         //test the index
-        System.out.printf("Index of \"6\" = %d, Index of \"Bog\" = %d\n", indexOfSix, indexOfBog);
+        System.out.printf("Index of \"6\" = %d, Index of \"bog\" = %d\n", indexOfSix, indexOfBog);
     }
 }

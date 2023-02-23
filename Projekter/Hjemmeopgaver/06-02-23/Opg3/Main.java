@@ -21,14 +21,14 @@ public class Main {
         try {
             Scanner scanner = new Scanner(inputFile);
             while(scanner.hasNextLine()) { //read
-                String line = scanner.nextLine();
-                for (int i = 0; i < line.length(); i++) {
-                    char character = line.charAt(i);
+                char[] line = scanner.nextLine().toCharArray();
+                for (char character : line) {
+                    //char character = line.charAt(i);
                     if(Character.isLetter(character) || character == ' ') { //filter 
                         filteredInput += character;
                     }
                 }
-                filteredInput += "\n"; //after line, change to new line.
+                //filteredInput += "\n"; //after line, change to new line.
             }
             scanner.close();
         }
