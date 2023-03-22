@@ -264,7 +264,7 @@ public class TeacherController {
         tfOne.setVisible(true); 
         tfOneDeleteUser.setVisible(true); 
 
-        //listens for click of accpet button. On accept, check that there are no empty boxes, then executes the statement.
+        //listens for click of accpet button. On accept, check that there are no emp´¨´¨´¨´+ty boxes, then executes the statement.
         listenForAccept(confirmLogo, confirmBox, 1, CRUD.DELETE, "Assignments");
     }
 
